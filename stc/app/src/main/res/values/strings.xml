@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">STC Servey</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">User Name</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Log in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="action_settings">Settings</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="server_url">http://128.199.132.190:8080/stcEdu/</string>
+
+    <string name="su">School Updating</string>
+    <string name="su_sc_register">Updating School Register</string>
+    <string name="su_sc_search">Udating School Search</string>
+
+    <string name="sm">School Monitoring</string>
+    <string name="sm__sc_register">Monitoring School Register</string>
+    <string name="sm_sc_Search">Monitoring School Search</string>
+
+    <string name="setting">Setting</string>
+    <string name="setting_logout">Log Out</string>
+    <string name="su_enrolled_children"><u><b>Enrolled Children</b></u></string>
+    <string name="su_enrolled_children_poor"><u><b>Enrolled Children(Poor)</b></u></string>
+    <string name="su_enrolled_children_disable"><u><b>Enrolled Children(Disabled)</b></u></string>
+    <string name="su_enrollment_data"><u><b>Enrollment data(Ethnic)</b></u></string>
+    <string name="su_eccds_cgs"><u><b>Trained ECCD CGs</b></u></string>
+    <string name="su_pefs"><u><b>Trained PEFs</b></u></string>
+    <string name="su_eccds_mcs"><u><b>Trained ECCD MCs</b></u></string>
+    
+</resources>

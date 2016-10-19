@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:text="School Code"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:id="@+id/txt1"
+            android:layout_width="150dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/txt_su_sccode"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Township"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:id="@+id/txt2"
+                android:layout_width="150dp" />
+
+
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/txt_su_Township"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="Type of Activity"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:id="@+id/txt3"
+                android:layout_width="150dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/sp_su_sc_activity"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Village Name"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:id="@+id/txt4"
+                android:layout_width="150dp" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/txt_su_villageName"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Updating Date"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:id="@+id/txt5"
+                android:layout_width="150dp" />
+
+            <Button
+                android:text="Choose Date"
+                style="@style/dateButton"
+                android:background="@drawable/custom_button"
+                android:onClick="showDatePickerDialog"
+                android:id="@+id/btn_su_date"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:text="@string/su_enrolled_children"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:id="@+id/lbl_su_enrolledChildren" />
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Male"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_male_enrolled_children_1"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Female"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_female_enrolled_children_1"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="@string/su_enrolled_children_poor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:id="@+id/lbl_su_enrolled_poor" />
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Male"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_male_enrolled_poor_2"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Female"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_female_enrolled_poor_2"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="@string/su_enrolled_children_disable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:id="@+id/lbl_su_enrolled_disable" />
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Male"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_male_enrolled_disable_3"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Female"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_female_enrolled_disable_3"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="@string/su_enrollment_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:id="@+id/lbl_su_enrollment_data" />
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Male"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_male_enrollment_4"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Female"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_female_enrollment_4"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="@string/su_eccds_cgs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:id="@+id/lbl_su_eccds_cgs" />
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Male"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_male_eccds_cgs_5"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Female"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_female_eccds_cgs_5"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="@string/su_pefs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:id="@+id/lbl_su_pefs" />
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Male"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_male_pefs_6"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Female"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_female_pefs_6"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="@string/su_eccds_mcs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:id="@+id/lbl_su_eccds_mcs" />
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Male"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_male_eccds_mcs_7"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Female"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_editTxt"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_female_eccds_mcs_7"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:text="Save"
+                android:id="@+id/but_su_save"
+                style="@style/mainButtonStyle"
+                android:background="@drawable/custom_button"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
+    </ScrollView>
