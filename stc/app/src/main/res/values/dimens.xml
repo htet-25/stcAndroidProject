@@ -6,7 +6,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="su_male_female_lbl">65dp</dimen>
+    <dimen name="su_male_female_lbl">110dp</dimen>
+    <dimen name="su_male_female_lbl_description">115dp</dimen>
     <dimen name="su_male_female_editTxt">60dp</dimen>
-    <dimen name="su_male_female_layout">210dp</dimen>
+    <dimen name="su_male_female_description">150dp</dimen>
+    <dimen name="su_male_female_layout">220dp</dimen>
+    <dimen name="su_male_female_description_layout">380dp</dimen>
 </resources>

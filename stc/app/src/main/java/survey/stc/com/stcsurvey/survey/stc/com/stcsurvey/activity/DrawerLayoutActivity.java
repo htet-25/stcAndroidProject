@@ -1,6 +1,7 @@
 package survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.activity;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
 import android.support.design.widget.NavigationView;
@@ -23,7 +24,9 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 import survey.stc.com.stcsurvey.R;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment.SchoolUpdatingListViewFragment;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment.SchoolUpdatingRegisterFragment;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolUpdatingData;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.User;
 
 public class DrawerLayoutActivity extends AppCompatActivity
@@ -123,8 +126,13 @@ public class DrawerLayoutActivity extends AppCompatActivity
         if (id == R.id.su_update) {
             fragment = new SchoolUpdatingRegisterFragment();
             title = "School Updating";
+            Bundle args = new Bundle();
+            args.putString("userid",user.getUserId());
+            args.putString("username",user.getUserName());
+            fragment.setArguments(args);
         } else if (id == R.id.su_search) {
-
+            fragment = new SchoolUpdatingListViewFragment();
+            title = "School Updating Log";
         }
 
         if(fragment != null)

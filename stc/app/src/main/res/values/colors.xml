@@ -5,4 +5,5 @@
     <color name="colorAccent">#006ECC</color>
     <color name="mainColor">#006ECC</color>
     <color name="btnFontColor">#ffffff</color>
+    <color name="background_color">#e6e6ff</color>
 </resources>

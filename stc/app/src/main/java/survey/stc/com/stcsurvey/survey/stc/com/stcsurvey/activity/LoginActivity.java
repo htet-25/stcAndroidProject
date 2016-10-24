@@ -213,7 +213,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     Toast.makeText(getApplicationContext(),"user",Toast.LENGTH_LONG).show();
-                    deleteAllObject();
+
                     User user = response.body();
                     if(user != null)
                     {
@@ -240,7 +240,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(),"user",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Can't connect to Server!",Toast.LENGTH_LONG).show();
                     showProgress(false);
                 }
             });

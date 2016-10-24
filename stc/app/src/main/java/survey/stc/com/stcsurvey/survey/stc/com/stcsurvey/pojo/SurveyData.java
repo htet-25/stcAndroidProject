@@ -3,11 +3,13 @@ package survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+import io.realm.RealmObject;
+
 /**
  * Created by Htet Aung Naing on 10/17/2016.
  */
 
-public class SurveyData implements Serializable {
+public class SurveyData extends RealmObject implements Serializable {
 
     String label;
     int malecount;

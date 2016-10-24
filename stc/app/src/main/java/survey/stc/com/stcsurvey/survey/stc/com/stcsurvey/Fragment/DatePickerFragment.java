@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Htet Aung Naing on 10/19/2016.
@@ -18,8 +19,10 @@ import java.util.Calendar;
 public  class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
     Button btnDate;
-    public DatePickerFragment(Button btnDate) {
+    Date updatingDate;
+    public DatePickerFragment(Button btnDate , Date updatingDate) {
         this.btnDate = btnDate;
+        this.updatingDate = updatingDate;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -38,5 +41,10 @@ public  class DatePickerFragment extends DialogFragment
     public void onDateSet(DatePicker view, int year, int month, int day) {
         btnDate.setText(new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year));
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, day);
+        updatingDate = calendar.getTime();
+
     }
 }

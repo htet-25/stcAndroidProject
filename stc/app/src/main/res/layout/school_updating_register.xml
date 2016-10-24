@@ -114,7 +114,6 @@
                 android:text="Choose Date"
                 style="@style/dateButton"
                 android:background="@drawable/custom_button"
-                android:onClick="showDatePickerDialog"
                 android:id="@+id/btn_su_date"/>
 
 
@@ -141,6 +140,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_male_enrolled_children_1"
                 android:layout_weight="1" />
 
@@ -150,6 +150,7 @@
             android:layout_width="@dimen/su_male_female_layout"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:text="Female"
                 android:layout_width="@dimen/su_male_female_lbl"
@@ -161,7 +162,27 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_female_enrolled_children_1"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_description_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Description"
+                android:layout_width="@dimen/su_male_female_lbl_description"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_description"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/txt_description_enrolled_children_1"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -187,6 +208,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_male_enrolled_poor_2"
                 android:layout_weight="1" />
 
@@ -207,7 +229,27 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_female_enrolled_poor_2"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_description_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Description"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_description"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/txt_description_enrolled_poor_2"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -233,6 +275,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_male_enrolled_disable_3"
                 android:layout_weight="1" />
 
@@ -253,7 +296,26 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_female_enrolled_disable_3"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_description_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Description"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_description"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/txt_description_enrolled_disable_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -280,6 +342,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_male_enrollment_4"
                 android:layout_weight="1" />
 
@@ -300,7 +363,28 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_female_enrollment_4"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_description_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Description"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_description"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txt_description_enrollment_4"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -327,6 +411,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_male_eccds_cgs_5"
                 android:layout_weight="1" />
 
@@ -347,7 +432,27 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_female_eccds_cgs_5"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_description_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Description"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_description"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/txt_description_eccds_cgs_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -374,6 +479,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_male_pefs_6"
                 android:layout_weight="1" />
 
@@ -394,7 +500,27 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_female_pefs_6"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_description_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Description"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_description"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/txt_description_pefs_6"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -421,6 +547,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:text="0"
                 android:id="@+id/txt_male_eccds_mcs_7"
                 android:layout_weight="1" />
 
@@ -442,6 +569,25 @@
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/txt_female_eccds_mcs_7"
+                android:text="0"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="@dimen/su_male_female_description_layout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Description"
+                android:layout_width="@dimen/su_male_female_lbl"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <EditText
+                android:layout_width="@dimen/su_male_female_description"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/txt_description_eccds_mcs_7"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -459,8 +605,6 @@
 
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>
