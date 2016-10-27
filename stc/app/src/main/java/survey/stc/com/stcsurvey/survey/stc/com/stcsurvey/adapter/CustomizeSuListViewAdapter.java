@@ -30,8 +30,11 @@ public class CustomizeSuListViewAdapter extends  ArrayAdapter<SchoolUpdatingData
 
         super(context, R.layout.customize_su_list_view_layout,  schoolList);
         contex = context;
+        notifyDataSetChanged();
 
     }
+
+
 
     @NonNull
     @Override

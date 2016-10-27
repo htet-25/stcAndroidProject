@@ -124,7 +124,7 @@ public class DrawerLayoutActivity extends AppCompatActivity
         String title = "";
 
         if (id == R.id.su_update) {
-            fragment = new SchoolUpdatingRegisterFragment();
+            fragment = new SchoolUpdatingRegisterFragment(0);
             title = "School Updating";
             Bundle args = new Bundle();
             args.putString("userid",user.getUserId());

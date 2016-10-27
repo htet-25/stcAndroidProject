@@ -151,16 +151,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
-    public void deleteAllObject()
-    {
-        boolean flag = false;
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(getApplicationContext()).deleteRealmIfMigrationNeeded().build();
-        boolean res = false;
-        Realm realm = Realm.getInstance(realmConfig);
-        realm.beginTransaction();
-        realm.deleteAll();
-        realm.commitTransaction();
-    }
+
 
 
     /**
@@ -203,7 +194,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // perform the user login attempt.
             showProgress(true);
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://128.199.132.190:8080/stcEdu/")
+                    .baseUrl("http://192.168.27.87:8080/stcEdu/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 

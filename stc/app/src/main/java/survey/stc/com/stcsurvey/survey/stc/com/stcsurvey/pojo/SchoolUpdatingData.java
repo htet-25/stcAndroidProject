@@ -7,6 +7,7 @@ import java.util.Calendar;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class SchoolUpdatingData extends RealmObject implements Serializable{
 
@@ -36,9 +37,17 @@ public class SchoolUpdatingData extends RealmObject implements Serializable{
 	String activityLabel;
 	String description;
 	public RealmList<SurveyData> schoolSurveyList;
+	RealmList<SchoolHistoryData> historyList;
 
-	
-	public String getActivityLabel() {
+    public RealmList<SchoolHistoryData> getHistoryList() {
+        return historyList;
+    }
+
+    public void setHistoryList(RealmList<SchoolHistoryData> historyList) {
+        this.historyList = historyList;
+    }
+
+    public String getActivityLabel() {
 		return activityLabel;
 	}
 	public void setActivityLabel(String activityLabel) {
@@ -149,6 +158,7 @@ public class SchoolUpdatingData extends RealmObject implements Serializable{
 		this.activityLabel = "";
 		this.moniDate = "";
 		this.description = "";
+        this.historyList = new RealmList<>();
 	}
 	
 
