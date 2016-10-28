@@ -42,6 +42,7 @@ import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.ResponseData;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolUpdatingData;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolUpdatingListWrapper;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.User;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.util.CustomizeToast;
 
 /**
  * Created by Htet Aung Naing on 10/21/2016.
@@ -138,7 +139,10 @@ public class SchoolUpdatingListViewFragment extends Fragment{
                             ResponseData res = response.body();
                             if(res.isServerError())
                             {
-                                Toast.makeText(schoolUpdatingListView.getContext(),"Server Error!",Toast.LENGTH_LONG).show();
+                                CustomizeToast cuToast = new CustomizeToast("error");
+                                Toast toast = cuToast.getCustomizeToast(schoolUpdatingListView.getContext(),"Server Error!");
+                                toast.show();
+                              /*  Toast.makeText(schoolUpdatingListView.getContext(),"Server Error!",Toast.LENGTH_LONG).show();*/
 
                             }else
                             {

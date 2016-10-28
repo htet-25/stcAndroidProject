@@ -21,7 +21,7 @@
         <TextView
             android:text="TextView"
             android:layout_gravity="center"
-            android:layout_width="250dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -38,6 +38,13 @@
             android:layout_width="35dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_info"
+            />
+        <ImageView
+            android:id="@+id/img_su_delete"
+            android:layout_width="45dp"
+            android:layout_height="50dp"
+            android:paddingLeft="5dp"
+            android:src="@drawable/ic_delete"
             />
 
 

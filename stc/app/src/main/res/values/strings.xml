@@ -35,5 +35,27 @@
     <string name="su_eccds_cgs"><u><b>Trained ECCD CGs</b></u></string>
     <string name="su_pefs"><u><b>Trained PEFs</b></u></string>
     <string name="su_eccds_mcs"><u><b>Trained ECCD MCs</b></u></string>
-    
+
+    <string name="sm_children_village_0_3"><u><b>No. of children in village(0-3)</b></u></string>
+    <string name="sm_children_village_3_5"><u><b>No. of children in village(3-5)</b></u></string>
+    <string name="sm_children_enrolled_0_3"><u><b>No. of children enrolled(0-3)</b></u></string>
+    <string name="sm_children_enrolled_3_5"><u><b>No. of children enrolled(3-5)</b></u></string>
+    <string name="sm_children_attending"><u><b>No. of children attending</b></u></string>
+    <string name="sm_transition_be"><u><b>Transition to BE</b></u></string>
+    <string name="sm_poor_children_enroll_0_3"><u><b>No. of poor children enrolled(0-3)</b></u></string>
+    <string name="sm_poor_children_enroll_3_5"><u><b>No. of poor children enrolled(3-5)</b></u></string>
+    <string name="sm_disable_children_village_0_3"><u><b>No. of disabled children in village(0-3)</b></u></string>
+    <string name="sm_disable_children_village_3_5"><u><b>No. of disabled children in village(3-5)</b></u></string>
+    <string name="sm_disable_children_enroll_0_3"><u><b>No. of disabled children enrolled(0-3)</b></u></string>
+    <string name="sm_disable_children_enroll_3_5"><u><b>No. of disabled children enrolled(3-5)</b></u></string>
+    <string name="sm_disable_children_attend"><u><b>No. of disabled children attending</b></u></string>
+    <string name="sm_transition_kg"><u><b>Transition to KG (disabled children)</b></u></string>
+    <string name="sm_ethnic_enroll_0_3"><u><b>No. of Ethnic children enrolled(0-3)</b></u></string>
+    <string name="sm_ethnic_enroll_3_5"><u><b>No. of Ethnic children enrolled(3-5)</b></u></string>
+    <string name="sm_no_of_caregiver"><u><b>No. of Caregivers</b></u></string>
+    <string name="sm_no_of_trained_caregiver"><u><b>No. of Trained Caregivers</b></u></string>
+    <string name="sm_pefs"><u><b>No. of PEFs</b></u></string>
+    <string name="sm_trained_pefs"><u><b>No. of Trained PEFs</b></u></string>
+    <string name="sm_eccd_mcs"><u><b>No. of ECCD MCs</b></u></string>
+    <string name="sm_trained_eccd_mcs"><u><b>No. of Trained ECCD MCs</b></u></string>
 </resources>

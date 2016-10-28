@@ -33,6 +33,7 @@ import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.CommonEnum;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolUpdatingData;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SetupData;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SurveyData;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.util.CustomizeToast;
 
 /**
  * Created by Htet Aung Naing on 10/18/2016.
@@ -113,7 +114,6 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -138,9 +138,13 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
                     SchoolUpdatingData school = realm.createObject(SchoolUpdatingData.class);
                     prepareData(school , realm);
                     realm.commitTransaction();
-
-                    Toast.makeText(schoolUpdatingView.getContext(),"Save Successfully!",Toast.LENGTH_LONG).show();
-
+                    CustomizeToast cuToast = new CustomizeToast("info");
+                    Toast toast = cuToast.getCustomizeToast(schoolUpdatingView.getContext(),"Save Successfully!");
+                    toast.show();
+                    school = new SchoolUpdatingData();
+                    updateData(school);
+                   /* Toast.makeText(schoolUpdatingView.getContext(),"Save Successfully!",Toast.LENGTH_LONG).show();
+*/
                 }
             });
 
