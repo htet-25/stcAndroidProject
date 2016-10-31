@@ -203,27 +203,54 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
         txtVillagename.setText(school.getVillagName());
         activityType.setSelection(school.getActivityType());
         btnUpdateDate.setText(df.format(school.getMonitoringDate()));
-        txtMaleEnrolled.setText(String.valueOf(surveyList.get(0).getMalecount()));
-        txtFemaleEnrolled.setText(String.valueOf(surveyList.get(0).getFemalecount()));
-        txtMaleEnrolledPoor.setText(String.valueOf(surveyList.get(1).getMalecount()));
-        txtFemaleEnrolledPoor.setText(String.valueOf(surveyList.get(1).getFemalecount()));
-        txtMaleEnrolledDisable.setText(String.valueOf(surveyList.get(2).getMalecount()));
-        txtFemaleEnrolledDisable.setText(String.valueOf(surveyList.get(2).getFemalecount()));
-        txtMaleEnrollmentData.setText(String.valueOf(surveyList.get(3).getMalecount()));
-        txtFemaleEnrollmentData.setText(String.valueOf(surveyList.get(3).getFemalecount()));
-        txtMaleEccdCgs.setText(String.valueOf(surveyList.get(4).getMalecount()));
-        txtFemaleEccdCgs.setText(String.valueOf(surveyList.get(4).getFemalecount()));
-        txtMalePefs.setText(String.valueOf(surveyList.get(5).getMalecount()));
-        txtFemalePefs.setText(String.valueOf(surveyList.get(5).getFemalecount()));
-        txtMaleEccdMcs.setText(String.valueOf(surveyList.get(6).getMalecount()));
-        txtFemaleEccdMcs.setText(String.valueOf(surveyList.get(6).getFemalecount()));
-        txtDescEnrolled.setText(surveyList.get(0).getDescription());
-        txtDescEnrolledPoor.setText(surveyList.get(1).getDescription());
-        txtDescEnrolledDisable.setText(surveyList.get(2).getDescription());
-        txtDescEnrollment.setText(surveyList.get(3).getDescription());
-        txtDescEccdCgs.setText(surveyList.get(4).getDescription());
-        txtDescEccdpfs.setText(surveyList.get(5).getDescription());
-        txtDescEccdMcs.setText(surveyList.get(6).getDescription());
+        if(surveyList.size()>0)
+        {
+            txtMaleEnrolled.setText(String.valueOf(surveyList.get(0).getMalecount()));
+            txtFemaleEnrolled.setText(String.valueOf(surveyList.get(0).getFemalecount()));
+            txtMaleEnrolledPoor.setText(String.valueOf(surveyList.get(1).getMalecount()));
+            txtFemaleEnrolledPoor.setText(String.valueOf(surveyList.get(1).getFemalecount()));
+            txtMaleEnrolledDisable.setText(String.valueOf(surveyList.get(2).getMalecount()));
+            txtFemaleEnrolledDisable.setText(String.valueOf(surveyList.get(2).getFemalecount()));
+            txtMaleEnrollmentData.setText(String.valueOf(surveyList.get(3).getMalecount()));
+            txtFemaleEnrollmentData.setText(String.valueOf(surveyList.get(3).getFemalecount()));
+            txtMaleEccdCgs.setText(String.valueOf(surveyList.get(4).getMalecount()));
+            txtFemaleEccdCgs.setText(String.valueOf(surveyList.get(4).getFemalecount()));
+            txtMalePefs.setText(String.valueOf(surveyList.get(5).getMalecount()));
+            txtFemalePefs.setText(String.valueOf(surveyList.get(5).getFemalecount()));
+            txtMaleEccdMcs.setText(String.valueOf(surveyList.get(6).getMalecount()));
+            txtFemaleEccdMcs.setText(String.valueOf(surveyList.get(6).getFemalecount()));
+            txtDescEnrolled.setText(surveyList.get(0).getDescription());
+            txtDescEnrolledPoor.setText(surveyList.get(1).getDescription());
+            txtDescEnrolledDisable.setText(surveyList.get(2).getDescription());
+            txtDescEnrollment.setText(surveyList.get(3).getDescription());
+            txtDescEccdCgs.setText(surveyList.get(4).getDescription());
+            txtDescEccdpfs.setText(surveyList.get(5).getDescription());
+            txtDescEccdMcs.setText(surveyList.get(6).getDescription());
+        }else
+        {
+            txtMaleEnrolled.setText(String.valueOf(0));
+            txtFemaleEnrolled.setText(String.valueOf(0));
+            txtMaleEnrolledPoor.setText(String.valueOf(0));
+            txtFemaleEnrolledPoor.setText(String.valueOf(0));
+            txtMaleEnrolledDisable.setText(String.valueOf(0));
+            txtFemaleEnrolledDisable.setText(String.valueOf(0));
+            txtMaleEnrollmentData.setText(String.valueOf(0));
+            txtFemaleEnrollmentData.setText(String.valueOf(0));
+            txtMaleEccdCgs.setText(String.valueOf(0));
+            txtFemaleEccdCgs.setText(String.valueOf(0));
+            txtMalePefs.setText(String.valueOf(0));
+            txtFemalePefs.setText(String.valueOf(0));
+            txtMaleEccdMcs.setText(String.valueOf(0));
+            txtFemaleEccdMcs.setText(String.valueOf(0));
+            txtDescEnrolled.setText("");
+            txtDescEnrolledPoor.setText("");
+            txtDescEnrolledDisable.setText("");
+            txtDescEnrollment.setText("");
+            txtDescEccdCgs.setText("");
+            txtDescEccdpfs.setText("");
+            txtDescEccdMcs.setText("");
+        }
+
     }
 
     public SchoolUpdatingData getSchoolUpdatingDataById(int id,Context contex)

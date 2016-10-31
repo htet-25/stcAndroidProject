@@ -8,7 +8,10 @@ import io.realm.RealmObject;
 
 public class SchoolHistoryData extends RealmObject implements Serializable{
 
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7669205424125331774L;
 	
 	int id;
 	int parentid;

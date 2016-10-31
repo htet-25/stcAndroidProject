@@ -24,6 +24,8 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 import survey.stc.com.stcsurvey.R;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment.SchoolMonitoringListViewFragment;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment.SchoolMonitoringRegisterFragment;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment.SchoolUpdatingListViewFragment;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment.SchoolUpdatingRegisterFragment;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolUpdatingData;
@@ -133,6 +135,14 @@ public class DrawerLayoutActivity extends AppCompatActivity
         } else if (id == R.id.su_search) {
             fragment = new SchoolUpdatingListViewFragment();
             title = "School Updating Log";
+        }else if(id == R.id.sm_register)
+        {
+            fragment = new SchoolMonitoringRegisterFragment(0);
+            title = "School Monitoring Register";
+        }else if(id == R.id.sm_search)
+        {
+            fragment = new SchoolMonitoringListViewFragment();
+            title = "School Monitoring List";
         }
 
         if(fragment != null)

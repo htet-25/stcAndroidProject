@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:background="@drawable/custom_dialog_border"
+    android:layout_height="match_parent">
 <RelativeLayout
     android:layout_width="match_parent" android:layout_height="match_parent">
 
@@ -24,13 +26,11 @@
             android:id="@+id/txt1"
             android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text=""
-                android:ems="10"
-                android:id="@+id/txt_sm_sccode"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_sccode"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -45,16 +45,11 @@
                 android:id="@+id/txt2"
                 android:layout_width="150dp" />
 
-
-
-
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text=""
-                android:ems="10"
-                android:id="@+id/txt_sm_Township"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_township"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -71,10 +66,11 @@
                 android:id="@+id/txt3"
                 android:layout_width="150dp" />
 
-            <Spinner
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/sp_sm_sc_activity"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_activity_type"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -89,13 +85,11 @@
                 android:textSize="18dp"
                 android:id="@+id/txt4"
                 android:layout_width="150dp" />
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text=""
-                android:ems="10"
-                android:id="@+id/txt_sm_villageName"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_village_name"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -110,11 +104,12 @@
                 android:id="@+id/txt5"
                 android:layout_width="150dp" />
 
-            <Button
-                android:text="Choose Date"
-                style="@style/dateButton"
-                android:background="@drawable/custom_button"
-                android:id="@+id/btn_sm_date"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_updatingDate"
+                android:layout_weight="1" />
 
 
         </LinearLayout>
@@ -131,11 +126,12 @@
                 android:id="@+id/txtEstablished"
                 android:layout_width="150dp" />
 
-            <Button
-                android:text="Choose Date"
-                style="@style/dateButton"
-                android:background="@drawable/custom_button"
-                android:id="@+id/btn_sm_estiblish_date"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_EstablishedDate"
+                android:layout_weight="1" />
 
 
         </LinearLayout>
@@ -150,13 +146,11 @@
                 android:textSize="18dp"
                 android:id="@+id/txtBuilding"
                 android:layout_width="150dp" />
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text=""
-                android:ems="10"
-                android:id="@+id/txt_sm_building_size"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_building_size"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -170,13 +164,11 @@
                 android:textSize="18dp"
                 android:id="@+id/txtCompound"
                 android:layout_width="150dp" />
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text=""
-                android:ems="10"
-                android:id="@+id/txt_sm_sc_compound_size"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_compound_size"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -191,13 +183,11 @@
                 android:id="@+id/txtLatrine"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0"
-                android:ems="10"
-                android:id="@+id/txt_sm_latrine"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_latrine"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -211,31 +201,12 @@
                 android:textSize="18dp"
                 android:id="@+id/txtCleanWater"
                 android:layout_width="150dp" />
-            <RadioGroup
-                android:id="@+id/rdoCleanWaterGroup"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal" >
-
-                <RadioButton
-                    android:id="@+id/rdoSmCleanWaterYes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:checked="true"
-                    android:text="Yes" />
-
-                <RadioButton
-                    android:id="@+id/rdoSmCleanWaterNo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="30dp"
-                    android:text="No" />
-            </RadioGroup>
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_clean_water"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -249,10 +220,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <Spinner
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/sp_sm_distance_service_town"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_dstBtw_service_town"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -266,10 +238,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <Spinner
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/sp_sm_distance_service_school"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_dstBtw_service_school"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -283,10 +256,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <Spinner
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/sp_sm_meeting_frequency"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_meeting_type"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -301,13 +275,11 @@
                 android:id="@+id/txtRevolving"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0"
-                android:ems="10"
-                android:id="@+id/txt_sm_revolving"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_revolving_fund"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -322,13 +294,11 @@
                 android:id="@+id/txtporfit"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0"
-                android:ems="10"
-                android:id="@+id/txt_sm_profit_revolving_fund"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_profit_revolving_fund"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -343,13 +313,11 @@
                 android:id="@+id/lblfeefromParent"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0"
-                android:ems="10"
-                android:id="@+id/txt_sm_fee_parent"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_fee_parent"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -364,13 +332,11 @@
                 android:id="@+id/txtIncome"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0"
-                android:ems="10"
-                android:id="@+id/txt_sm_other_income"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_other_income"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -385,13 +351,11 @@
                 android:id="@+id/txtMonthlyIncome"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0"
-                android:ems="10"
-                android:id="@+id/txt_sm_total_monthly_income"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_monthly_income"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -405,13 +369,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0"
-                android:ems="10"
-                android:id="@+id/txt_sm_caregiver_salary"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_cargiver_salary"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -425,13 +387,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0"
-                android:ems="10"
-                android:id="@+id/txt_sm_general_expense"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_general_expense"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -445,13 +405,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0"
-                android:ems="10"
-                android:id="@+id/txt_sm_total_expense"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_total_expense"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -465,13 +423,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0"
-                android:ems="10"
-                android:id="@+id/txt_sm_monthly_balance"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_monthly_balance"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -485,12 +441,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:ems="10"
-                android:id="@+id/txt_sm_issues"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_issue"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -503,31 +458,12 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
                 android:layout_width="150dp" />
-            <RadioGroup
-                android:id="@+id/rdoCompleteResolveGroup"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal" >
-
-                <RadioButton
-                    android:id="@+id/rdoSmResolveGroupYes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:checked="true"
-                    android:text="Yes" />
-
-                <RadioButton
-                    android:id="@+id/rdoSmResolveGroupNo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="30dp"
-                    android:text="No" />
-            </RadioGroup>
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_complete_resolve"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -540,31 +476,12 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
                 android:layout_width="150dp" />
-            <RadioGroup
-                android:id="@+id/rdoCenterFunctionGroup"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal" >
-
-                <RadioButton
-                    android:id="@+id/rdoCentralFunctionGroupOpen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:checked="true"
-                    android:text="Open" />
-
-                <RadioButton
-                    android:id="@+id/rdoCentralFunctionGroupClose"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="30dp"
-                    android:text="Close" />
-            </RadioGroup>
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_center_function"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -578,12 +495,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:ems="10"
-                android:id="@+id/txt_smEccdApeScore"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_eccdApe_score"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -598,12 +514,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:ems="10"
-                android:id="@+id/txtTechnicalSupport"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_technical_support"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -618,12 +533,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:ems="10"
-                android:id="@+id/txtFundingSupport"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_funding_support"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -638,12 +552,11 @@
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:ems="10"
-                android:id="@+id/txtTlmsSupport"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_tlms_support"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -662,13 +575,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_children_village_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_children_village_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -684,13 +595,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_female_children_village_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_children_village_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -705,11 +614,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_description_children_village_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_children_village_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -730,13 +639,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_children_village_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_children_village_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -751,13 +658,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_female_children_village_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_children_village_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -772,11 +677,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_children_village_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_children_village_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -797,13 +702,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_enrolled_children_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_enrolled_children_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -818,13 +721,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_female_enrolled_children_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_enrolled_children_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -838,11 +739,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_enrolled_children_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_enrolled_children_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -864,13 +765,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_enrolled_children_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_enrolled_children_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -885,13 +784,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_female_enrolled_children_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_enrolled_children_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -906,12 +803,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_enrolled_children_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_enrolled_children_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -932,13 +828,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_children_attending"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_children_attending"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -953,13 +847,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_female_children_attending"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_female_children_attending"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -974,11 +866,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_children_attending"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_children_attending"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -999,13 +891,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_transition_be"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_transition_be"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1020,13 +910,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_female_transition_be"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_transition_be"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1041,11 +929,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_transition_be"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_transition_be"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1067,13 +955,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_poor_children_enroll_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_male_poor_children_enroll_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1088,13 +974,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_poor_children_enroll_0_3"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_poor_children_enroll_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1108,11 +992,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_poor_children_enroll_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_poor_children_enroll_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1134,13 +1018,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_poor_children_enroll_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_poor_children_enroll_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1155,13 +1037,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_poor_children_enroll_3_5"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_poor_children_enroll_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1175,11 +1055,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_poor_children_enroll_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_poor_children_enroll_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1201,13 +1081,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_disable_children_village_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_disable_children_village_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1222,13 +1100,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_disable_children_village_0_3"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_female_disable_children_village_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1242,11 +1118,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_disable_children_village_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_disable_children_village_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1268,13 +1144,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_disable_children_village_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_disable_children_village_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1289,13 +1163,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_disable_children_village_3_5"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_disable_children_village_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1309,11 +1181,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_disable_children_village_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_disable_children_village_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1335,13 +1207,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_disable_children_enroll_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_disable_children_enroll_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1356,13 +1226,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_disable_children_enroll_0_3"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_disable_children_enroll_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1376,11 +1244,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_disable_children_enroll_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_disable_children_enroll_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1402,13 +1270,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_disable_children_enroll_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_disable_children_enroll_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1423,13 +1289,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_disable_children_enroll_3_5"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_disable_children_enroll_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1443,11 +1307,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_disable_children_enroll_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_disable_children_enroll_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1469,13 +1333,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_disable_children_attend"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_disable_children_attend"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1490,13 +1352,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_disable_children_attend"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_disable_children_attend"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1510,11 +1370,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_disable_children_attend"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_disable_children_attend"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1536,13 +1396,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_transition_kg"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_transition_kg"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1557,13 +1415,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_transition_kg"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_transition_kg"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1577,11 +1433,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_transition_kg"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_transition_kg"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1603,13 +1459,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_ethnic_enroll_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_ethnic_enroll_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1624,13 +1478,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_ethnic_enroll_0_3"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_ethnic_enroll_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1644,11 +1496,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_ethnic_enroll_0_3"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_ethnic_enroll_0_3"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1670,13 +1522,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_ethnic_enroll_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_ethnic_enroll_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1691,13 +1541,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_ethnic_enroll_3_5"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_ethnic_enroll_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1711,11 +1559,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_ethnic_enroll_3_5"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_ethnic_enroll_3_5"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1737,13 +1585,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_no_of_caregiver"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_no_of_caregiver"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1758,13 +1604,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_no_of_caregiver"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_no_of_caregiver"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1778,11 +1622,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_no_of_caregiver"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_no_of_caregiver"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1804,13 +1648,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_no_of_trained_caregiver"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_no_of_trained_caregiver"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1825,13 +1667,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_no_of_trained_caregiver"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_no_of_trained_caregiver"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1846,11 +1686,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_no_of_trained_caregiver"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_no_of_trained_caregiver"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1872,13 +1712,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_no_of_pefs"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_no_of_pefs"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1893,13 +1731,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_no_of_pefs"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_no_of_pefs"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1914,11 +1750,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_pefs"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_pefs"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1941,13 +1777,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_no_of_trained_pefs"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_no_of_trained_pefs"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1962,13 +1796,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_no_of_trained_pefs"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_no_of_trained_pefs"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -1983,11 +1815,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_trained_pefs"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_trained_pefs"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -2009,13 +1841,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_eccd_mcs"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_eccd_mcs"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -2030,13 +1860,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_eccd_mcs"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_eccd_mcs"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -2051,11 +1879,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_eccd_mcs"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_eccd_mcs"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -2077,13 +1905,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:text="0"
-                android:id="@+id/txt_sm_male_trained_eccd_mcs"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_male_detail_trained_eccd_mcs"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -2098,13 +1924,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_editTxt"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/txt_sm_female_trained_eccd_mcs"
-                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_female_detail_trained_eccd_mcs"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -2119,25 +1943,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="@dimen/su_male_female_description"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/txt_sm_description_trained_eccd_mcs"
+                android:textSize="18dp"
+                android:id="@+id/txt_sm_detail_description_trained_eccd_mcs"
                 android:layout_weight="1" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button
-                android:text="Save"
-                android:id="@+id/but_sm_save"
-                style="@style/mainButtonStyle"
-                android:background="@drawable/custom_button"
-                android:layout_weight="1" />
         </LinearLayout>
 
 

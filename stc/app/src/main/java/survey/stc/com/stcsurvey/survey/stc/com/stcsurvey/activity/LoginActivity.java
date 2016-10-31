@@ -45,6 +45,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import survey.stc.com.stcsurvey.R;
 import survey.stc.com.stcsurvey.retrofit.UserRetrofitInterface;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.User;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.util.CustomizeToast;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -194,7 +195,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // perform the user login attempt.
             showProgress(true);
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.27.87:8080/stcEdu/")
+                    .baseUrl(getString(R.string.server_url))
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -203,7 +204,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             userCall.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
-                    Toast.makeText(getApplicationContext(),"user",Toast.LENGTH_LONG).show();
+
 
                     User user = response.body();
                     if(user != null)
@@ -222,7 +223,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         startActivity(intent);
                     }else
                     {
-                        Toast.makeText(getApplicationContext(),"User name and password are invalid!",Toast.LENGTH_LONG).show();
+                        CustomizeToast cuToast = new CustomizeToast("error");
+                        Toast toast = cuToast.getCustomizeToast(getApplicationContext(),"User name and password is invalid!");
+                        toast.show();
                     }
 
 

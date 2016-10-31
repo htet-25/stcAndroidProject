@@ -16,7 +16,7 @@
     </string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="server_url">http://128.199.132.190:8080/stcEdu/</string>
+    <string name="server_url">http://192.168.43.226:8080/stcEdu/</string>
 
     <string name="su">School Updating</string>
     <string name="su_sc_register">Updating School Register</string>

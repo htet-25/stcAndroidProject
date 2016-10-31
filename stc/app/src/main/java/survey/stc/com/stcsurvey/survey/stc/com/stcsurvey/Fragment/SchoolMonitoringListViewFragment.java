@@ -16,30 +16,26 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import survey.stc.com.stcsurvey.R;
+import survey.stc.com.stcsurvey.retrofit.SchoolMonitoringRefrofitInterface;
 import survey.stc.com.stcsurvey.retrofit.SchoolUpdatingRefrofitInterface;
-import survey.stc.com.stcsurvey.retrofit.UserRetrofitInterface;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.adapter.CustomizeSMListViewAdapter;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.adapter.CustomizeSuListViewAdapter;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.ResponseData;
-import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolUpdatingData;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolMonitoringData;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolMonitoringListWrapper;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolMonitoringData;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolUpdatingListWrapper;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.User;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.util.CustomizeToast;
@@ -48,31 +44,31 @@ import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.survey.stc.com.stcsurve
  * Created by Htet Aung Naing on 10/21/2016.
  */
 
-public class SchoolUpdatingListViewFragment extends Fragment{
+public class SchoolMonitoringListViewFragment extends Fragment{
 
-    View schoolUpdatingListView;
-    List<SchoolUpdatingData> muploadSchoolList = new ArrayList<SchoolUpdatingData>();
+    View schoolMonitoringListView;
+    List<SchoolMonitoringData> muploadSchoolList = new ArrayList<SchoolMonitoringData>();
     User user;
-    SchoolUpdatingListWrapper schoolWrapper = new SchoolUpdatingListWrapper();
+    SchoolMonitoringListWrapper schoolWrapper = new SchoolMonitoringListWrapper();
 
 
     public void deleteSchoolUpdating(String key)
     {
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolUpdatingListView.getContext()).deleteRealmIfMigrationNeeded().build();
+        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolMonitoringListView.getContext()).deleteRealmIfMigrationNeeded().build();
         Realm realm = Realm.getInstance(realmConfig);
         realm.beginTransaction();
-        RealmResults<SchoolUpdatingData> realmResults = realm.where(SchoolUpdatingData.class).equalTo("schoolCode",key).findAll();
+        RealmResults<SchoolMonitoringData> realmResults = realm.where(SchoolMonitoringData.class).equalTo("schoolCode",key).findAll();
         realmResults.deleteAllFromRealm();
         realm.commitTransaction();
     }
 
-    public List<SchoolUpdatingData> getAllSchoolUpdatingLIist()
+    public List<SchoolMonitoringData> getAllSchoolMonitoringLIist()
     {
-        List<SchoolUpdatingData>resList = new ArrayList<>();
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolUpdatingListView.getContext()).deleteRealmIfMigrationNeeded().build();
+        List<SchoolMonitoringData>resList = new ArrayList<>();
+        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolMonitoringListView.getContext()).deleteRealmIfMigrationNeeded().build();
         Realm realm = Realm.getInstance(realmConfig);
         realm.beginTransaction();
-        RealmResults<SchoolUpdatingData> realmResults = realm.where(SchoolUpdatingData.class).findAll();
+        RealmResults<SchoolMonitoringData> realmResults = realm.where(SchoolMonitoringData.class).findAll();
 
         muploadSchoolList = realm.copyFromRealm(realmResults);
         resList =  realm.copyFromRealm(realmResults);
@@ -87,14 +83,14 @@ public class SchoolUpdatingListViewFragment extends Fragment{
         Button butUploadServer;
         final ListView lstSchoolUpdateList;
 
-        schoolUpdatingListView = inflater.inflate(R.layout.sc_updating_list_view,container,false);
+        schoolMonitoringListView = inflater.inflate(R.layout.sc_monitoring_list_view,container,false);
 
-        final List<SchoolUpdatingData> schoolList = getAllSchoolUpdatingLIist();
+        final List<SchoolMonitoringData> schoolList = getAllSchoolMonitoringLIist();
 
 
-        butUploadServer = (Button) schoolUpdatingListView.findViewById(R.id.but_su_upload_server);
-        lstSchoolUpdateList = (ListView) schoolUpdatingListView.findViewById(R.id.suLogListView);
-        lstSchoolUpdateList.setAdapter(new CustomizeSuListViewAdapter(schoolUpdatingListView.getContext(),schoolList));
+        butUploadServer = (Button) schoolMonitoringListView.findViewById(R.id.but_sm_upload_server);
+        lstSchoolUpdateList = (ListView) schoolMonitoringListView.findViewById(R.id.smLogListView);
+        lstSchoolUpdateList.setAdapter(new CustomizeSMListViewAdapter(schoolMonitoringListView.getContext(),schoolList));
         lstSchoolUpdateList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -117,9 +113,9 @@ public class SchoolUpdatingListViewFragment extends Fragment{
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
 
-                SchoolUpdatingRefrofitInterface schoolUpdateInterface = retrofit.create(SchoolUpdatingRefrofitInterface.class);
+                SchoolMonitoringRefrofitInterface schoolUpdateInterface = retrofit.create(SchoolMonitoringRefrofitInterface.class);
                 Call<ResponseData> schoolListcall = schoolUpdateInterface.uploadSchoolListtToserver(schoolWrapper);
-                SchoolUpdatingListWrapper schoolWrapper = new SchoolUpdatingListWrapper();
+                SchoolMonitoringListWrapper schoolWrapper = new SchoolMonitoringListWrapper();
                 Gson gson = new Gson();
                 String schoolUpdatingJson = "";
                 if(muploadSchoolList.size()>0)
@@ -130,7 +126,7 @@ public class SchoolUpdatingListViewFragment extends Fragment{
 
                 if(schoolUpdatingJson.equals(""))
                 {
-                    Toast.makeText(schoolUpdatingListView.getContext(),"There is no data to upload server!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(schoolMonitoringListView.getContext(),"There is no data to upload server!",Toast.LENGTH_LONG).show();
                 }else
                 {
                     schoolListcall.enqueue(new Callback<ResponseData>() {
@@ -140,9 +136,9 @@ public class SchoolUpdatingListViewFragment extends Fragment{
                             if(res.isServerError())
                             {
                                 CustomizeToast cuToast = new CustomizeToast("error");
-                                Toast toast = cuToast.getCustomizeToast(schoolUpdatingListView.getContext(),"Server Error!");
+                                Toast toast = cuToast.getCustomizeToast(schoolMonitoringListView.getContext(),"Server Error!");
                                 toast.show();
-                              /*  Toast.makeText(schoolUpdatingListView.getContext(),"Server Error!",Toast.LENGTH_LONG).show();*/
+                              /*  Toast.makeText(schoolMonitoringListView.getContext(),"Server Error!",Toast.LENGTH_LONG).show();*/
 
                             }else
                             {
@@ -153,7 +149,7 @@ public class SchoolUpdatingListViewFragment extends Fragment{
                                     {
                                         errorCode += res.getErrorScCodeList().get(i)+",";
                                     }
-                                    Toast.makeText(schoolUpdatingListView.getContext(),"Error Code:"+errorCode,Toast.LENGTH_LONG).show();
+                                    Toast.makeText(schoolMonitoringListView.getContext(),"Error Code:"+errorCode,Toast.LENGTH_LONG).show();
                                 }
 
                                 if(res.getSaveScCodeList().size()>0)
@@ -164,7 +160,7 @@ public class SchoolUpdatingListViewFragment extends Fragment{
                                     }
                                 }
 
-                                lstSchoolUpdateList.setAdapter(new CustomizeSuListViewAdapter(schoolUpdatingListView.getContext(),getAllSchoolUpdatingLIist()));
+                                lstSchoolUpdateList.setAdapter(new CustomizeSMListViewAdapter(schoolMonitoringListView.getContext(),getAllSchoolMonitoringLIist()));
                             }
 
 
@@ -172,7 +168,7 @@ public class SchoolUpdatingListViewFragment extends Fragment{
 
                         @Override
                         public void onFailure(Call<ResponseData> call, Throwable t) {
-                            Toast.makeText(schoolUpdatingListView.getContext(),"Can't connect to server!",Toast.LENGTH_LONG).show();
+                            Toast.makeText(schoolMonitoringListView.getContext(),"Can't connect to server!",Toast.LENGTH_LONG).show();
 
                         }
                     });
@@ -180,6 +176,6 @@ public class SchoolUpdatingListViewFragment extends Fragment{
             }
         });
 
-        return schoolUpdatingListView;
+        return schoolMonitoringListView;
     }
 }

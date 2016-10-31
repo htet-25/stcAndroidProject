@@ -177,7 +177,7 @@ public enum ActivityStatus{
 	
 	public enum DistanceEccdBtwTown
 	{
-		lt1mile(1,"Less than 1 mile"),oneto10mile(2,"1-10 miles"),tento20miles(3,"10-20 miles")
+		defaultDistance(0,"Select Distance"),lt1mile(1,"Less than 1 mile"),oneto10mile(2,"1-10 miles"),tento20miles(3,"10-20 miles")
 		,twentyto30miles(4,"20-30 miles"),over30miles(5,"Over 30 miles"); 
 		private final int value;  
 		private final String description;        
@@ -192,7 +192,7 @@ public enum ActivityStatus{
 	
 	public enum DistanceEccdBtwSchool
 	{
-		lt1mile(1,"Less than 1 miles"),oneto5mile(2,"1-5 miles"),fiveto10mile(3,"5-10 miles")
+		defaultDistance(0,"Select Distance"),lt1mile(1,"Less than 1 miles"),oneto5mile(2,"1-5 miles"),fiveto10mile(3,"5-10 miles")
 		,tento15mile(4,"10-15 miles"); 
 		private final int value;  
 		private final String description;        
@@ -207,7 +207,7 @@ public enum ActivityStatus{
 	
 	public enum FrequencyMeeting
 	{
-		monthly(1,"Monthly"),bimonthly(2,"Bi-Monthly"),quartley(3,"Quarterly"),sixmonthly(4,"Six monthly"),annual(5,"Annually")
+		defaultMeeting(0,"Select Meeting Frequency"),onthly(1,"Monthly"),bimonthly(2,"Bi-Monthly"),quartley(3,"Quarterly"),sixmonthly(4,"Six monthly"),annual(5,"Annually")
 		,ifrequire(6,"If Require"),never(7,"Never"); 
 		private final int value;  
 		private final String description;        
@@ -224,10 +224,10 @@ public enum ActivityStatus{
 	{  
 		noOfChildren0To3(1,"No. of children in village(0-3)"),noOfChildren3To5(2,"No. of children in village(3-5)"),noOfChildrenEnroll0To3(3,"No. of children enrolled(0-3)")
 		,noOfChildrenEnroll3To5(4 ,"No. of children enrolled(3-5)") , noOfChildrenAttending(5,"No. of children attending") , 
-		transition(6,"Transition to BE"),noOfPoor0To3(7,"No. of poor children enrolled(0-3)"),noOfPoor3To5(8,"No. of poor children enrolled(3-5)"),noOfDisableCildren0to3(9,"No. of disabled children in village(0-3)")
+		transitionBE(6,"Transition to BE"),noOfPoor0To3(7,"No. of poor children enrolled(0-3)"),noOfPoor3To5(8,"No. of poor children enrolled(3-5)"),noOfDisableCildren0to3(9,"No. of disabled children in village(0-3)")
 		,noOfDisableCildren3To5(10,"No. of disabled children in village(3-5)"),noOfDisableChildrenEnroll0To3(11,"No. of disabled children enrolled(0-3)")
 		,noOfDisableChildrenEnroll3To5(12,"No. of disabled children enrolled(3-5)"),noOFDisableChildrenAttending(13,"No. of disabled children attending")
-		,transitionToBe(14,"Transition to KG (disabled children)"),noOfEthnicChildren0To3(15,"No. of Ethnic children enrolled(0-3)"),noOfEthnicChildren3To5(16,"No. of Ethnic children enrolled(3-5)")
+		,transitionToKG(14,"Transition to KG (disabled children)"),noOfEthnicChildren0To3(15,"No. of Ethnic children enrolled(0-3)"),noOfEthnicChildren3To5(16,"No. of Ethnic children enrolled(3-5)")
 		,noOfCareGivers(17,"No. of Caregivers"),noOfTrainCareGiver(18,"No. of Trained Caregivers"),noOfPefs(19,"No. of PEFs")
 		,noOfTrainedPefs(20,"No. of Trained PEFs"),noOfEccd(21,"No. of ECCD MCs"),noOfTrainedEccd(22,"No. of Trained ECCD MCs"); 
 		private final int value;  
