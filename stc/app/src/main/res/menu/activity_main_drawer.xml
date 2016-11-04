@@ -23,4 +23,15 @@
         </menu>
     </item>
 
+    <item android:title="Setting">
+        <menu>
+            <item
+                android:id="@+id/sc_log_out"
+                android:title="Log Out">
+
+            </item>
+
+        </menu>
+    </item>
+
 </menu>

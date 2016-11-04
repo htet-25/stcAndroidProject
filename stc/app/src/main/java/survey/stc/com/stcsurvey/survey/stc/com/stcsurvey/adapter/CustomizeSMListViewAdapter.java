@@ -20,6 +20,7 @@ import io.realm.RealmResults;
 import survey.stc.com.stcsurvey.R;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolMonitoringData;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolMonitoringData;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.util.CustomizeToast;
 
 /**
  * Created by Htet Aung Naing on 10/21/2016.
@@ -108,7 +109,9 @@ public class CustomizeSMListViewAdapter extends  ArrayAdapter<SchoolMonitoringDa
                     RealmResults<SchoolMonitoringData> realmResults = realm.where(SchoolMonitoringData.class).equalTo("id",school.getId()).findAll();
                     realmResults.deleteAllFromRealm();
                     realm.commitTransaction();
-                    Toast.makeText(contex,"Delete Successfully!",Toast.LENGTH_LONG).show();
+                    CustomizeToast cuToast = new CustomizeToast("info");
+                    Toast toast = cuToast.getCustomizeToast(contex,"Delete Successfully!");
+                    toast.show();
                     refreshList();
                 }
             });

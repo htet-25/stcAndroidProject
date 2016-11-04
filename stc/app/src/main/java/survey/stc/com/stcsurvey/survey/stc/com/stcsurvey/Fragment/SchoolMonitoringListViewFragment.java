@@ -1,6 +1,10 @@
 package survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment;
 
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,16 +16,19 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,6 +54,8 @@ import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.survey.stc.com.stcsurve
 public class SchoolMonitoringListViewFragment extends Fragment{
 
     View schoolMonitoringListView;
+    View mProgressView;
+    View schoolMonitoringView;
     List<SchoolMonitoringData> muploadSchoolList = new ArrayList<SchoolMonitoringData>();
     User user;
     SchoolMonitoringListWrapper schoolWrapper = new SchoolMonitoringListWrapper();
@@ -77,6 +86,39 @@ public class SchoolMonitoringListViewFragment extends Fragment{
         return resList;
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    private void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+            schoolMonitoringView.setVisibility(show ? View.GONE : View.VISIBLE);
+            schoolMonitoringView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    schoolMonitoringView.setVisibility(show ? View.GONE : View.VISIBLE);
+                }
+            });
+
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mProgressView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            schoolMonitoringView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -87,7 +129,8 @@ public class SchoolMonitoringListViewFragment extends Fragment{
 
         final List<SchoolMonitoringData> schoolList = getAllSchoolMonitoringLIist();
 
-
+        mProgressView =  schoolMonitoringListView.findViewById(R.id.school_monitoring_list_view_progress);
+        schoolMonitoringView = schoolMonitoringListView.findViewById(R.id.school_monitoring_list_view);
         butUploadServer = (Button) schoolMonitoringListView.findViewById(R.id.but_sm_upload_server);
         lstSchoolUpdateList = (ListView) schoolMonitoringListView.findViewById(R.id.smLogListView);
         lstSchoolUpdateList.setAdapter(new CustomizeSMListViewAdapter(schoolMonitoringListView.getContext(),schoolList));
@@ -95,7 +138,7 @@ public class SchoolMonitoringListViewFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 int id = schoolList.get(position).getId();
-                Fragment fragment = new SchoolUpdatingRegisterFragment(id);
+                Fragment fragment = new SchoolMonitoringRegisterFragment(id);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, fragment);
@@ -108,9 +151,16 @@ public class SchoolMonitoringListViewFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 schoolWrapper.setSchoolLsit(muploadSchoolList);
+
+                final OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                        .readTimeout(60, TimeUnit.SECONDS)
+                        .connectTimeout(60, TimeUnit.SECONDS)
+                        .build();
+
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl(getString(R.string.server_url))
                         .addConverterFactory(GsonConverterFactory.create())
+                        .client(okHttpClient)
                         .build();
 
                 SchoolMonitoringRefrofitInterface schoolUpdateInterface = retrofit.create(SchoolMonitoringRefrofitInterface.class);
@@ -126,15 +176,19 @@ public class SchoolMonitoringListViewFragment extends Fragment{
 
                 if(schoolUpdatingJson.equals(""))
                 {
-                    Toast.makeText(schoolMonitoringListView.getContext(),"There is no data to upload server!",Toast.LENGTH_LONG).show();
+                    CustomizeToast cuToast = new CustomizeToast("error");
+                    Toast toast = cuToast.getCustomizeToast(schoolMonitoringListView.getContext(),"There is no data to upload!");
+                    toast.show();
                 }else
                 {
+                    showProgress(true);
                     schoolListcall.enqueue(new Callback<ResponseData>() {
                         @Override
                         public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
                             ResponseData res = response.body();
                             if(res.isServerError())
                             {
+                                showProgress(false);
                                 CustomizeToast cuToast = new CustomizeToast("error");
                                 Toast toast = cuToast.getCustomizeToast(schoolMonitoringListView.getContext(),"Server Error!");
                                 toast.show();
@@ -142,6 +196,7 @@ public class SchoolMonitoringListViewFragment extends Fragment{
 
                             }else
                             {
+                                showProgress(false);
                                 if(res.getErrorScCodeList().size()>0)
                                 {
                                     String errorCode = "";
@@ -149,16 +204,25 @@ public class SchoolMonitoringListViewFragment extends Fragment{
                                     {
                                         errorCode += res.getErrorScCodeList().get(i)+",";
                                     }
-                                    Toast.makeText(schoolMonitoringListView.getContext(),"Error Code:"+errorCode,Toast.LENGTH_LONG).show();
+                                    CustomizeToast cuToast = new CustomizeToast("error");
+                                    Toast toast = cuToast.getCustomizeToast(schoolMonitoringListView.getContext(),"Error Code:"+errorCode);
+                                    toast.show();
                                 }
 
                                 if(res.getSaveScCodeList().size()>0)
                                 {
+                                    String saveCode = "";
                                     for(String code : res.getSaveScCodeList())
                                     {
+                                        saveCode += code+",";
                                         deleteSchoolUpdating(code);
                                     }
+                                    CustomizeToast cuToast = new CustomizeToast("info");
+                                    Toast toast = cuToast.getCustomizeToast(schoolMonitoringListView.getContext(),saveCode +" are uploaded to server successfully!");
+                                    toast.show();
                                 }
+
+
 
                                 lstSchoolUpdateList.setAdapter(new CustomizeSMListViewAdapter(schoolMonitoringListView.getContext(),getAllSchoolMonitoringLIist()));
                             }
@@ -168,8 +232,10 @@ public class SchoolMonitoringListViewFragment extends Fragment{
 
                         @Override
                         public void onFailure(Call<ResponseData> call, Throwable t) {
-                            Toast.makeText(schoolMonitoringListView.getContext(),"Can't connect to server!",Toast.LENGTH_LONG).show();
-
+                            showProgress(false);
+                            CustomizeToast cuToast = new CustomizeToast("error");
+                            Toast toast = cuToast.getCustomizeToast(schoolMonitoringListView.getContext(),"Can't connect to server!");
+                            toast.show();
                         }
                     });
                 }

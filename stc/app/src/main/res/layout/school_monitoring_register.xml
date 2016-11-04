@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+
+
+<ScrollView android:id="@+id/school_monitoring_form"  android:layout_width="match_parent" android:layout_height="match_parent">
+
 <RelativeLayout
     android:layout_width="match_parent" android:layout_height="match_parent">
-
 
     <LinearLayout
         android:orientation="vertical"
@@ -2146,3 +2152,4 @@
 
 </RelativeLayout>
     </ScrollView>
+</RelativeLayout>

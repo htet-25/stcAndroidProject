@@ -132,17 +132,21 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
                 @Override
                 public void onClick(View view)
                 {
-                    RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolUpdatingView.getContext()).deleteRealmIfMigrationNeeded().build();
-                    Realm realm = Realm.getInstance(realmConfig);
-                    realm.beginTransaction();
-                    SchoolUpdatingData school = realm.createObject(SchoolUpdatingData.class);
-                    prepareData(school , realm);
-                    realm.commitTransaction();
-                    CustomizeToast cuToast = new CustomizeToast("info");
-                    Toast toast = cuToast.getCustomizeToast(schoolUpdatingView.getContext(),"Save Successfully!");
-                    toast.show();
-                    school = new SchoolUpdatingData();
-                    updateData(school);
+                    if(isValidate(schoolUpdatingView.getContext()))
+                    {
+                        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolUpdatingView.getContext()).deleteRealmIfMigrationNeeded().build();
+                        Realm realm = Realm.getInstance(realmConfig);
+                        realm.beginTransaction();
+                        SchoolUpdatingData school = realm.createObject(SchoolUpdatingData.class);
+                        prepareData(school , realm);
+                        realm.commitTransaction();
+                        CustomizeToast cuToast = new CustomizeToast("info");
+                        Toast toast = cuToast.getCustomizeToast(schoolUpdatingView.getContext(),"Save Successfully!");
+                        toast.show();
+                        school = new SchoolUpdatingData();
+                        updateData(school);
+                    }
+
                    /* Toast.makeText(schoolUpdatingView.getContext(),"Save Successfully!",Toast.LENGTH_LONG).show();
 */
                 }
@@ -169,14 +173,18 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
                 @Override
                 public void onClick(View view)
                 {
-                    RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolUpdatingView.getContext()).deleteRealmIfMigrationNeeded().build();
-                    Realm realm = Realm.getInstance(realmConfig);
-                    realm.beginTransaction();
-                    SchoolUpdatingData updateSchool = realm.where(SchoolUpdatingData.class)
-                            .equalTo("id", school.getId()).findFirst();
-                    prepareData(updateSchool , realm);
-                    realm.commitTransaction();
-                    Toast.makeText(schoolUpdatingView.getContext(),"Save Successfully!",Toast.LENGTH_LONG).show();
+                    if(isValidate(schoolUpdatingView.getContext()))
+                    {
+                        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolUpdatingView.getContext()).deleteRealmIfMigrationNeeded().build();
+                        Realm realm = Realm.getInstance(realmConfig);
+                        realm.beginTransaction();
+                        SchoolUpdatingData updateSchool = realm.where(SchoolUpdatingData.class)
+                                .equalTo("id", school.getId()).findFirst();
+                        prepareData(updateSchool , realm);
+                        realm.commitTransaction();
+                        Toast.makeText(schoolUpdatingView.getContext(),"Save Successfully!",Toast.LENGTH_LONG).show();
+                    }
+
 
                 }
             });
@@ -304,63 +312,105 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
 
     public void prepareSurveyUpdateData(SchoolUpdatingData school,Realm realm)
     {
-       setSurveyUpdateData(school.getSchoolSurveyList().get(0),Integer.parseInt(txtMaleEnrolled.getText().toString()),Integer.parseInt(txtFemaleEnrolled.getText().toString()),
+       setSurveyUpdateData(school.getSchoolSurveyList().get(0),txtMaleEnrolled.getText().toString(),txtFemaleEnrolled.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.enrollChildren.value(),CommonEnum.SchoolSurveyRequirement.enrollChildren.description(),txtDescEnrolled.getText().toString());
-        setSurveyUpdateData(school.getSchoolSurveyList().get(1),Integer.parseInt(txtMaleEnrolledPoor.getText().toString()),Integer.parseInt(txtFemaleEnrolledPoor.getText().toString()),
+        setSurveyUpdateData(school.getSchoolSurveyList().get(1),txtMaleEnrolledPoor.getText().toString(),txtFemaleEnrolledPoor.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.poorChildEnrollment.value(),CommonEnum.SchoolSurveyRequirement.poorChildEnrollment.description(),txtDescEnrolledPoor.getText().toString());
-        setSurveyUpdateData(school.getSchoolSurveyList().get(2),Integer.parseInt(txtMaleEnrolledDisable.getText().toString()),Integer.parseInt(txtFemaleEnrolledDisable.getText().toString()),
+        setSurveyUpdateData(school.getSchoolSurveyList().get(2),txtMaleEnrolledDisable.getText().toString(),txtFemaleEnrolledDisable.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.disableChildEnrollment.value(),CommonEnum.SchoolSurveyRequirement.disableChildEnrollment.description(),txtDescEnrolledDisable.getText().toString());
-        setSurveyUpdateData(school.getSchoolSurveyList().get(3),Integer.parseInt(txtMaleEnrollmentData.getText().toString()),Integer.parseInt(txtFemaleEnrollmentData.getText().toString()),
+        setSurveyUpdateData(school.getSchoolSurveyList().get(3),txtMaleEnrollmentData.getText().toString(),txtFemaleEnrollmentData.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.enrollEthnic.value(),CommonEnum.SchoolSurveyRequirement.enrollEthnic.description(),txtDescEnrollment.getText().toString());
-        setSurveyUpdateData(school.getSchoolSurveyList().get(4),Integer.parseInt(txtMaleEccdCgs.getText().toString()),Integer.parseInt(txtFemaleEccdCgs.getText().toString()),
+        setSurveyUpdateData(school.getSchoolSurveyList().get(4),txtMaleEccdCgs.getText().toString(),txtFemaleEccdCgs.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.trainEccd.value(),CommonEnum.SchoolSurveyRequirement.trainEccd.description(),txtDescEccdCgs.getText().toString());
-        setSurveyUpdateData(school.getSchoolSurveyList().get(5),Integer.parseInt(txtMalePefs.getText().toString()),Integer.parseInt(txtFemalePefs.getText().toString()),
+        setSurveyUpdateData(school.getSchoolSurveyList().get(5),txtMalePefs.getText().toString(),txtFemalePefs.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.trainPefs.value(),CommonEnum.SchoolSurveyRequirement.trainPefs.description(),txtDescEccdpfs.getText().toString());
-        setSurveyUpdateData(school.getSchoolSurveyList().get(6),Integer.parseInt(txtMaleEccdMcs.getText().toString()),Integer.parseInt(txtFemaleEccdMcs.getText().toString()),
+        setSurveyUpdateData(school.getSchoolSurveyList().get(6),txtMaleEccdMcs.getText().toString(),txtFemaleEccdMcs.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.trainedECCDMcs.value(),CommonEnum.SchoolSurveyRequirement.trainedECCDMcs.description(),txtDescEccdMcs.getText().toString());
     }
 
     public void prepareSurveyData(SchoolUpdatingData school,Realm realm)
     {
-        school.getSchoolSurveyList().add(setSurveyData(realm,Integer.parseInt(txtMaleEnrolled.getText().toString()),Integer.parseInt(txtFemaleEnrolled.getText().toString()),
+        school.getSchoolSurveyList().add(setSurveyData(realm,txtMaleEnrolled.getText().toString(),txtFemaleEnrolled.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.enrollChildren.value(),CommonEnum.SchoolSurveyRequirement.enrollChildren.description(),txtDescEnrolled.getText().toString()));
-        school.getSchoolSurveyList().add(setSurveyData(realm,Integer.parseInt(txtMaleEnrolledPoor.getText().toString()),Integer.parseInt(txtFemaleEnrolledPoor.getText().toString()),
+        school.getSchoolSurveyList().add(setSurveyData(realm,txtMaleEnrolledPoor.getText().toString(),txtFemaleEnrolledPoor.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.poorChildEnrollment.value(),CommonEnum.SchoolSurveyRequirement.poorChildEnrollment.description(),txtDescEnrolledPoor.getText().toString()));
-        school.getSchoolSurveyList().add(setSurveyData(realm,Integer.parseInt(txtMaleEnrolledDisable.getText().toString()),Integer.parseInt(txtFemaleEnrolledDisable.getText().toString()),
+        school.getSchoolSurveyList().add(setSurveyData(realm,txtMaleEnrolledDisable.getText().toString(),txtFemaleEnrolledDisable.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.disableChildEnrollment.value(),CommonEnum.SchoolSurveyRequirement.disableChildEnrollment.description(),txtDescEnrolledDisable.getText().toString()));
-        school.getSchoolSurveyList().add(setSurveyData(realm,Integer.parseInt(txtMaleEnrollmentData.getText().toString()),Integer.parseInt(txtFemaleEnrollmentData.getText().toString()),
+        school.getSchoolSurveyList().add(setSurveyData(realm,txtMaleEnrollmentData.getText().toString(),txtFemaleEnrollmentData.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.enrollEthnic.value(),CommonEnum.SchoolSurveyRequirement.enrollEthnic.description(),txtDescEnrollment.getText().toString()));
-        school.getSchoolSurveyList().add(setSurveyData(realm,Integer.parseInt(txtMaleEccdCgs.getText().toString()),Integer.parseInt(txtFemaleEccdCgs.getText().toString()),
+        school.getSchoolSurveyList().add(setSurveyData(realm,txtMaleEccdCgs.getText().toString(),txtFemaleEccdCgs.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.trainEccd.value(),CommonEnum.SchoolSurveyRequirement.trainEccd.description(),txtDescEccdCgs.getText().toString()));
-        school.getSchoolSurveyList().add(setSurveyData(realm,Integer.parseInt(txtMalePefs.getText().toString()),Integer.parseInt(txtFemalePefs.getText().toString()),
+        school.getSchoolSurveyList().add(setSurveyData(realm,txtMalePefs.getText().toString(),txtFemalePefs.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.trainPefs.value(),CommonEnum.SchoolSurveyRequirement.trainPefs.description(),txtDescEccdpfs.getText().toString()));
-        school.getSchoolSurveyList().add(setSurveyData(realm,Integer.parseInt(txtMaleEccdMcs.getText().toString()),Integer.parseInt(txtFemaleEccdMcs.getText().toString()),
+        school.getSchoolSurveyList().add(setSurveyData(realm,txtMaleEccdMcs.getText().toString(),txtFemaleEccdMcs.getText().toString(),
                 CommonEnum.SchoolSurveyRequirement.trainedECCDMcs.value(),CommonEnum.SchoolSurveyRequirement.trainedECCDMcs.description(),txtDescEccdMcs.getText().toString()));
     }
 
-    public SurveyData setSurveyData(Realm realm,int malecount, int femalecount, int typeid , String lbl , String description)
+    public void showCustomizeToast(String error,Context context)
+    {
+        CustomizeToast cuToast = new CustomizeToast("warn");
+        Toast toast = cuToast.getCustomizeToast(context,error);
+        toast.show();
+    }
+
+    public boolean isValidate(Context context)
+    {
+        boolean flag = true;
+        if(txtSchoolCode.getText().toString().equals(""))
+        {
+            flag = false;
+            showCustomizeToast("School Code must not be empty!" , context);
+        }else if(txtTownship.getText().toString().equals(""))
+        {
+            flag = false;
+            showCustomizeToast("Township must not be empty!",context);
+        }else if(txtVillagename.getText().toString().equals(""))
+        {
+            flag = false;
+            showCustomizeToast("Village name must not be empty!",context);
+        }else if(activityKey == 0)
+        {
+            flag = false;
+            showCustomizeToast("Select Type of Activity!",context);
+        }else if(btnUpdateDate.getText().toString().equalsIgnoreCase("choose date"))
+        {
+            flag = false;
+            showCustomizeToast("Choose Updating Date!",context);
+        }
+
+        return flag;
+    }
+
+    public SurveyData setSurveyData(Realm realm,String malecount, String femalecount, int typeid , String lbl , String description)
     {
         SurveyData survey = realm.createObject(SurveyData.class);
         survey.setCreatedUserName(userid);
         survey.setModifiedUserName(userid);
         survey.setCreatedDate(new Date());
         survey.setModifiedDate(new Date());
-        survey.setMalecount(malecount);
-        survey.setFemalecount(femalecount);
+        if(!malecount.equals(""))
+             survey.setMalecount(Integer.parseInt(malecount));
+        else survey.setMalecount(0);
+        if(!femalecount.equals(""))
+             survey.setFemalecount(Integer.parseInt(femalecount));
+        else survey.setFemalecount(0);
         survey.setTypeId(typeid);
         survey.setLabel(lbl);
         survey.setDescription(description);
         return survey;
     }
 
-    public void setSurveyUpdateData(SurveyData survey,int malecount, int femalecount, int typeid , String lbl , String description)
+    public void setSurveyUpdateData(SurveyData survey,String malecount, String femalecount, int typeid , String lbl , String description)
     {
         survey.setCreatedUserName(userid);
         survey.setModifiedUserName(userid);
         survey.setCreatedDate(new Date());
         survey.setModifiedDate(new Date());
-        survey.setMalecount(malecount);
-        survey.setFemalecount(femalecount);
+        if(!malecount.equals(""))
+            survey.setMalecount(Integer.parseInt(malecount));
+        else survey.setMalecount(0);
+        if(!femalecount.equals(""))
+            survey.setFemalecount(Integer.parseInt(femalecount));
         survey.setTypeId(typeid);
         survey.setLabel(lbl);
         survey.setDescription(description);

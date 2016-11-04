@@ -16,11 +16,11 @@
     </string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="server_url">http://192.168.43.226:8080/stcEdu/</string>
+    <string name="server_url">http://128.199.132.190:8080/stcEdu/</string>
 
     <string name="su">School Updating</string>
     <string name="su_sc_register">Updating School Register</string>
-    <string name="su_sc_search">Udating School Search</string>
+    <string name="su_sc_search">Updating School Search</string>
 
     <string name="sm">School Monitoring</string>
     <string name="sm__sc_register">Monitoring School Register</string>
@@ -58,4 +58,9 @@
     <string name="sm_trained_pefs"><u><b>No. of Trained PEFs</b></u></string>
     <string name="sm_eccd_mcs"><u><b>No. of ECCD MCs</b></u></string>
     <string name="sm_trained_eccd_mcs"><u><b>No. of Trained ECCD MCs</b></u></string>
+
+    <string name="confirm_msg">Are you sure want to exit?</string>
+    <string name="exit">Exit</string>
+    <string name="cancel">Cancel</string>
+
 </resources>

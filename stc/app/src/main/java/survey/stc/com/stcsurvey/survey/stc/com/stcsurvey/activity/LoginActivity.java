@@ -221,6 +221,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         Intent intent = new Intent(LoginActivity.this , DrawerLayoutActivity.class);
                         intent.putExtra("uid",response.body().getId());
                         startActivity(intent);
+                        finish();
                     }else
                     {
                         CustomizeToast cuToast = new CustomizeToast("error");

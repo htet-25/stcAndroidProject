@@ -9,6 +9,9 @@
         <item name="windowActionBar">true</item>
     </style>
 
+    <style name="menu_font_size">
+        <item name="android:textSize">17sp</item>
+    </style>
 
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -41,6 +44,19 @@
         <item name="android:textColor">@color/btnFontColor</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="FullHeightDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="ConfirmBtnStyle" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">100dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:textColor">@color/btnFontColor</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 

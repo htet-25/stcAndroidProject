@@ -21,7 +21,7 @@ public interface SchoolUpdatingRefrofitInterface {
   /*  @POST("stc/api/schoolapi/insert/")
     Call<String> uploadSchoolListtToserver(@Body List<SchoolUpdatingData> schoolList);*/
 
-    @POST("stc/api/schoolapi/insert/")
+    @POST("stc/api/schoolupdating/insert/")
     Call<ResponseData> uploadSchoolListtToserver(@Body SchoolUpdatingListWrapper schoolList);
 
 

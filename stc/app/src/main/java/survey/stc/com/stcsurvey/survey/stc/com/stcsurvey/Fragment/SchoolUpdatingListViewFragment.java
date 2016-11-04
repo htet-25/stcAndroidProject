@@ -1,6 +1,10 @@
 package survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment;
 
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,10 +28,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
+import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,6 +57,8 @@ import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.survey.stc.com.stcsurve
 public class SchoolUpdatingListViewFragment extends Fragment{
 
     View schoolUpdatingListView;
+    View schoolUpdatingView;
+    View mProgressView;
     List<SchoolUpdatingData> muploadSchoolList = new ArrayList<SchoolUpdatingData>();
     User user;
     SchoolUpdatingListWrapper schoolWrapper = new SchoolUpdatingListWrapper();
@@ -64,6 +72,39 @@ public class SchoolUpdatingListViewFragment extends Fragment{
         RealmResults<SchoolUpdatingData> realmResults = realm.where(SchoolUpdatingData.class).equalTo("schoolCode",key).findAll();
         realmResults.deleteAllFromRealm();
         realm.commitTransaction();
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    private void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+            schoolUpdatingView.setVisibility(show ? View.GONE : View.VISIBLE);
+            schoolUpdatingView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    schoolUpdatingView.setVisibility(show ? View.GONE : View.VISIBLE);
+                }
+            });
+
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mProgressView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            schoolUpdatingView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
     }
 
     public List<SchoolUpdatingData> getAllSchoolUpdatingLIist()
@@ -91,7 +132,8 @@ public class SchoolUpdatingListViewFragment extends Fragment{
 
         final List<SchoolUpdatingData> schoolList = getAllSchoolUpdatingLIist();
 
-
+        schoolUpdatingView = schoolUpdatingListView.findViewById(R.id.school_updating_list_view);
+        mProgressView =  schoolUpdatingListView.findViewById(R.id.school_updating_list_view_progress);
         butUploadServer = (Button) schoolUpdatingListView.findViewById(R.id.but_su_upload_server);
         lstSchoolUpdateList = (ListView) schoolUpdatingListView.findViewById(R.id.suLogListView);
         lstSchoolUpdateList.setAdapter(new CustomizeSuListViewAdapter(schoolUpdatingListView.getContext(),schoolList));
@@ -112,9 +154,16 @@ public class SchoolUpdatingListViewFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 schoolWrapper.setSchoolLsit(muploadSchoolList);
+
+                final OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                        .readTimeout(60, TimeUnit.SECONDS)
+                        .connectTimeout(60, TimeUnit.SECONDS)
+                        .build();
+
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl(getString(R.string.server_url))
                         .addConverterFactory(GsonConverterFactory.create())
+                        .client(okHttpClient)
                         .build();
 
                 SchoolUpdatingRefrofitInterface schoolUpdateInterface = retrofit.create(SchoolUpdatingRefrofitInterface.class);
@@ -130,12 +179,16 @@ public class SchoolUpdatingListViewFragment extends Fragment{
 
                 if(schoolUpdatingJson.equals(""))
                 {
-                    Toast.makeText(schoolUpdatingListView.getContext(),"There is no data to upload server!",Toast.LENGTH_LONG).show();
+                    CustomizeToast cuToast = new CustomizeToast("error");
+                    Toast toast = cuToast.getCustomizeToast(schoolUpdatingListView.getContext(),"There is no data to upload server!");
+                    toast.show();
                 }else
                 {
+                    showProgress(true);
                     schoolListcall.enqueue(new Callback<ResponseData>() {
                         @Override
                         public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
+                            showProgress(false);
                             ResponseData res = response.body();
                             if(res.isServerError())
                             {
@@ -153,15 +206,23 @@ public class SchoolUpdatingListViewFragment extends Fragment{
                                     {
                                         errorCode += res.getErrorScCodeList().get(i)+",";
                                     }
-                                    Toast.makeText(schoolUpdatingListView.getContext(),"Error Code:"+errorCode,Toast.LENGTH_LONG).show();
+                                    CustomizeToast cuToast = new CustomizeToast("error");
+                                    Toast toast = cuToast.getCustomizeToast(schoolUpdatingListView.getContext(),"Error Code:"+errorCode);
+                                    toast.show();
+
                                 }
 
                                 if(res.getSaveScCodeList().size()>0)
                                 {
+                                    String saveCode = "";
                                     for(String code : res.getSaveScCodeList())
                                     {
+                                        saveCode += code+",";
                                         deleteSchoolUpdating(code);
                                     }
+                                    CustomizeToast cuToast = new CustomizeToast("info");
+                                    Toast toast = cuToast.getCustomizeToast(schoolUpdatingListView.getContext(),saveCode +" are uploaded to server successfully!");
+                                    toast.show();
                                 }
 
                                 lstSchoolUpdateList.setAdapter(new CustomizeSuListViewAdapter(schoolUpdatingListView.getContext(),getAllSchoolUpdatingLIist()));
@@ -172,8 +233,10 @@ public class SchoolUpdatingListViewFragment extends Fragment{
 
                         @Override
                         public void onFailure(Call<ResponseData> call, Throwable t) {
-                            Toast.makeText(schoolUpdatingListView.getContext(),"Can't connect to server!",Toast.LENGTH_LONG).show();
-
+                            showProgress(false);
+                            CustomizeToast cuToast = new CustomizeToast("info");
+                            Toast toast = cuToast.getCustomizeToast(schoolUpdatingListView.getContext(),"Can't connect to server!");
+                            toast.show();
                         }
                     });
                 }

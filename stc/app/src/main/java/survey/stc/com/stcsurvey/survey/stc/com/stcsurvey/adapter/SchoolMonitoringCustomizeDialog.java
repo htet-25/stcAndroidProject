@@ -317,8 +317,13 @@ public class SchoolMonitoringCustomizeDialog extends AlertDialog{
             txtFemaleTrainedPefs.setText(String.valueOf(school.getSurveyList().get(19).getFemalecount()));
             txtDescriptionTrainedPefs.setText(school.getSurveyList().get(19).getDescription());
 
+        txtMaleEccdMcs.setText(String.valueOf(school.getSurveyList().get(20).getMalecount()));
+        txtFemaleEccdMcs.setText(String.valueOf(school.getSurveyList().get(20).getFemalecount()));
+        txtDescriptionEccdMcs.setText(school.getSurveyList().get(20).getDescription());
 
-
+        txtMaleTrainedEccdMcs.setText(String.valueOf(school.getSurveyList().get(21).getMalecount()));
+        txtFemaleTrainedEccdMcs.setText(String.valueOf(school.getSurveyList().get(21).getFemalecount()));
+        txtDescriptionTrainedEccdMcs.setText(school.getSurveyList().get(21).getDescription());
 
     }
 

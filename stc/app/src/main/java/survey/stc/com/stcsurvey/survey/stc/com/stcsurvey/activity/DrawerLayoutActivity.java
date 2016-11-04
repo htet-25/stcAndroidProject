@@ -1,9 +1,14 @@
 package survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.activity;
 
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -13,10 +18,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -28,6 +37,7 @@ import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment.SchoolMonitori
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment.SchoolMonitoringRegisterFragment;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment.SchoolUpdatingListViewFragment;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment.SchoolUpdatingRegisterFragment;
+import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolMonitoringData;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.SchoolUpdatingData;
 import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.pojo.User;
 
@@ -36,12 +46,19 @@ public class DrawerLayoutActivity extends AppCompatActivity
 
     User user;
     TextView userCodeTxt;
+    Dialog exitDialog;
     TextView userNameTxt;
     int id;
+    Button butCancel;
+    Button butExit;
+    Context activity;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        activity = DrawerLayoutActivity.this;
+        exitDialog = new Dialog(activity, R.style.FullHeightDialog);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -55,6 +72,8 @@ public class DrawerLayoutActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+
         user = new User();
         id = getIntent().getIntExtra("uid",0);
         user = getUserByid(id);
@@ -66,7 +85,9 @@ public class DrawerLayoutActivity extends AppCompatActivity
 
         userCodeTxt.setText(user.getUserId());
         userNameTxt.setText(user.getUserName());
-
+        if (savedInstanceState == null) {
+            onNavigationItemSelected(navigationView.getMenu().getItem(0).getSubMenu().getItem());
+        }
 
     }
 
@@ -83,15 +104,59 @@ public class DrawerLayoutActivity extends AppCompatActivity
 
         return userData.get(0);
     }
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
+        exitDialog.setCancelable(true);
+        exitDialog.setCanceledOnTouchOutside(false);
+        exitDialog.getWindow().setBackgroundDrawable(
+                new ColorDrawable(Color.TRANSPARENT));
+        LayoutInflater inflater = (LayoutInflater) activity
+                .getSystemService(((Activity) activity).LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.exit_custom_dialog,
+                (ViewGroup) (findViewById(R.id.outerLayout)));
+        exitDialog.setContentView(layout);
+
+        exitDialog.show();
+
+        butCancel = (Button) layout.findViewById(R.id.butCancel);
+        butExit = (Button) layout.findViewById(R.id.butExit);
+
+        butExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exitDialog.dismiss();
+                //onDestroy();
+                System.exit(1);
+
+            }
+        });
+
+        butCancel.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                exitDialog.cancel();
+            }
+        });
+
+   /*   if (doubleBackToExitPressedOnce) {
             super.onBackPressed();
+            return;
         }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);*/
+
+
     }
 
     @Override
@@ -125,6 +190,7 @@ public class DrawerLayoutActivity extends AppCompatActivity
         int id = item.getItemId();
         String title = "";
 
+
         if (id == R.id.su_update) {
             fragment = new SchoolUpdatingRegisterFragment(0);
             title = "School Updating";
@@ -143,12 +209,34 @@ public class DrawerLayoutActivity extends AppCompatActivity
         {
             fragment = new SchoolMonitoringListViewFragment();
             title = "School Monitoring List";
+        }else if(id == R.id.sc_log_out)
+        {
+
+            RealmConfiguration realmConfig = new RealmConfiguration.Builder(activity).deleteRealmIfMigrationNeeded().build();
+            Realm realm = Realm.getInstance(realmConfig);
+            realm.beginTransaction();
+            RealmResults<User> realmResults = realm.where(User.class).findAll();
+            realmResults.deleteAllFromRealm();
+            realm.commitTransaction();
+
+            finish();
+            //onDestroy();
+            System.exit(0);
+        }else
+        {
+            fragment = new SchoolUpdatingRegisterFragment(0);
+            title = "School Updating";
+            Bundle args = new Bundle();
+            args.putString("userid",user.getUserId());
+            args.putString("username",user.getUserName());
+            fragment.setArguments(args);
         }
 
         if(fragment != null)
         {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, fragment);
+            setTitle(title);
             ft.commit();
         }
 

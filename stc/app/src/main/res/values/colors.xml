@@ -7,7 +7,9 @@
     <color name="btnFontColor">#ffffff</color>
     <color name="background_color">#e6e6ff</color>
     <color name="error_border_color">#ff3333</color>
+    <color name="warn_border_color">#ff8000</color>
     <color name="error_background_color">#ffe6e6</color>
+    <color name="warn_background_color">#ffd9b3</color>
     <color name="info_border_color">#4CAF50</color>
     <color name="info_background_color">#ccffcc</color>
 </resources>

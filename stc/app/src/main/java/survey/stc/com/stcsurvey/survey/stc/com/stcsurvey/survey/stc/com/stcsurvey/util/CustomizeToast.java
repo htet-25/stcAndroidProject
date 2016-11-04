@@ -34,9 +34,14 @@ public class CustomizeToast {
             TextView txtInfo = (TextView) layout.findViewById(R.id.txtInfotoast);
             txtInfo.setText(infotext);
 
-        }else
+        }else if(toast_type.equals("error"))
         {
             layout = inflater.inflate(R.layout.customize_error_toast , null);
+            TextView txtInfo = (TextView) layout.findViewById(R.id.txt_error_toast);
+            txtInfo.setText(infotext);
+        }else
+        {
+            layout = inflater.inflate(R.layout.customize_warn_toast , null);
             TextView txtInfo = (TextView) layout.findViewById(R.id.txt_error_toast);
             txtInfo.setText(infotext);
         }
