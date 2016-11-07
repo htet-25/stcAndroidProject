@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ProgressBar
         android:id="@+id/school_updating_list_view_progress"
         android:layout_gravity="center"
@@ -18,11 +23,13 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="410dp"
+        android:layout_gravity="center"
         android:id="@+id/suLogListView"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="bottom"
         android:orientation="horizontal">
         <Button
             android:text="Upload To Server"
@@ -33,3 +40,4 @@
     </LinearLayout>
         </LinearLayout>
 </LinearLayout>
+</ScrollView>
