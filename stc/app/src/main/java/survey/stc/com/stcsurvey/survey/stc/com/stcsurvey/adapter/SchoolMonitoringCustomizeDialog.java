@@ -157,6 +157,7 @@ public class SchoolMonitoringCustomizeDialog extends AlertDialog{
         List<SchoolMonitoringData> schoolList = realm.copyFromRealm(results);
         school = schoolList.get(0);
         realm.commitTransaction();
+        realm.close();
         return school;
     }
 

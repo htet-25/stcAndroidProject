@@ -1,5 +1,6 @@
 package survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Build;
@@ -16,6 +17,7 @@ import java.util.Date;
  * Created by Htet Aung Naing on 10/19/2016.
  */
 
+@SuppressLint("ValidFragment")
 public  class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
     Button btnDate;
@@ -40,7 +42,7 @@ public  class DatePickerFragment extends DialogFragment
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         btnDate.setText(new StringBuilder().append(day).append("/")
-                .append(month).append("/").append(year));
+                .append(month+1).append("/").append(year));
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, day);

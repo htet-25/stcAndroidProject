@@ -138,7 +138,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_male_enrolled_children_1"
@@ -160,7 +160,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_female_enrolled_children_1"
@@ -206,7 +206,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_male_enrolled_poor_2"
@@ -227,7 +227,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_female_enrolled_poor_2"
@@ -273,7 +273,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_male_enrolled_disable_3"
@@ -294,7 +294,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_female_enrolled_disable_3"
@@ -340,7 +340,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_male_enrollment_4"
@@ -361,7 +361,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_female_enrollment_4"
@@ -382,7 +382,6 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_description"
                 android:layout_height="wrap_content"
-                android:inputType="number"
                 android:ems="10"
                 android:id="@+id/txt_description_enrollment_4"
                 android:layout_weight="1" />
@@ -409,7 +408,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_male_eccds_cgs_5"
@@ -430,7 +429,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_female_eccds_cgs_5"
@@ -477,7 +476,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_male_pefs_6"
@@ -498,7 +497,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_female_pefs_6"
@@ -545,7 +544,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:text="0"
                 android:id="@+id/txt_male_eccds_mcs_7"
@@ -566,7 +565,7 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_editTxt"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:id="@+id/txt_female_eccds_mcs_7"
                 android:text="0"

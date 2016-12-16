@@ -57,7 +57,7 @@ public class CustomizeSuListViewAdapter extends  ArrayAdapter<SchoolUpdatingData
         muploadSchoolList = realm.copyFromRealm(realmResults);
         resList =  realm.copyFromRealm(realmResults);
         realm.commitTransaction();
-
+        realm.close();
         return resList;
     }
 
@@ -107,6 +107,7 @@ public class CustomizeSuListViewAdapter extends  ArrayAdapter<SchoolUpdatingData
                     RealmResults<SchoolUpdatingData> realmResults = realm.where(SchoolUpdatingData.class).equalTo("id",school.getId()).findAll();
                     realmResults.deleteAllFromRealm();
                     realm.commitTransaction();
+                    realm.close();
                     Toast.makeText(contex,"Delete Successfully!",Toast.LENGTH_LONG).show();
                     refreshList();
                 }

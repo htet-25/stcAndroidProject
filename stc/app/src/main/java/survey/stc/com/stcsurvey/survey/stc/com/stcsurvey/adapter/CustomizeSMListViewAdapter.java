@@ -59,7 +59,7 @@ public class CustomizeSMListViewAdapter extends  ArrayAdapter<SchoolMonitoringDa
         muploadSchoolList = realm.copyFromRealm(realmResults);
         resList =  realm.copyFromRealm(realmResults);
         realm.commitTransaction();
-
+        realm.close();
         return resList;
     }
 
@@ -109,6 +109,7 @@ public class CustomizeSMListViewAdapter extends  ArrayAdapter<SchoolMonitoringDa
                     RealmResults<SchoolMonitoringData> realmResults = realm.where(SchoolMonitoringData.class).equalTo("id",school.getId()).findAll();
                     realmResults.deleteAllFromRealm();
                     realm.commitTransaction();
+                    realm.close();
                     CustomizeToast cuToast = new CustomizeToast("info");
                     Toast toast = cuToast.getCustomizeToast(contex,"Delete Successfully!");
                     toast.show();

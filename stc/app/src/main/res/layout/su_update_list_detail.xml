@@ -158,6 +158,7 @@
                 <TextView
                     android:layout_width="@dimen/su_male_female_editTxt"
                     android:layout_height="wrap_content"
+                    android:textSize="18dp"
                     android:id="@+id/txt_female_detail_enrolled_children_1"
                     android:layout_weight="1" />
 

@@ -3,6 +3,7 @@ package survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
@@ -47,6 +48,7 @@ import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.survey.stc.com.stcsurve
  * Created by Htet Aung Naing on 10/18/2016.
  */
 
+@SuppressLint("ValidFragment")
 public class SchoolMonitoringRegisterFragment extends Fragment implements AdapterView.OnItemSelectedListener{
 
     EditText txtSchoolCode;
@@ -67,11 +69,8 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
     EditText txtProfitRevlovingFund;
     EditText txtFeeFromParents;
     EditText txtOtherIncome;
-    EditText txtMonthlyIncome;
     EditText txtCaregiverSalary;
     EditText txtGeneralExpense;
-    EditText txtTotalExpense;
-    EditText txtMontlyBalance;
     EditText txtIssue;
     RadioGroup rgCompletelyResolve;
     RadioButton rdoCompletelyResolveYes;
@@ -174,14 +173,10 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
     int id = 0;
     DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
-    public SchoolMonitoringRegisterFragment(int id)
-    {
-        this.id = id;
-    }
+
 
     public void matchUi()
     {
-
         txtSchoolCode = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_sccode);
         txtTownship = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_Township);
         txtVillagename = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_villageName);
@@ -202,11 +197,8 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
         txtProfitRevlovingFund = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_profit_revolving_fund);
         txtFeeFromParents = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_fee_parent);
         txtOtherIncome = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_other_income);
-        txtMonthlyIncome = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_total_monthly_income);
         txtCaregiverSalary = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_caregiver_salary);
         txtGeneralExpense = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_general_expense);
-        txtTotalExpense = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_total_expense);
-        txtMontlyBalance = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_monthly_balance);
         txtIssue = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_issues);
         rgCompletelyResolve = (RadioGroup) schoolUpdatingView.findViewById(R.id.rdoCompleteResolveGroup);
         rdoCompletelyResolveYes = (RadioButton) schoolUpdatingView.findViewById(R.id.rdoSmResolveGroupYes);
@@ -289,6 +281,10 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
         lblTlmsSupport = (TextView) schoolUpdatingView.findViewById(R.id.lbl_sm_tlmsSupport);
     }
 
+    public SchoolMonitoringRegisterFragment(int id) {
+        this.id = id;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -318,7 +314,7 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
                         SchoolMonitoringData school = realm.createObject(SchoolMonitoringData.class);
                         prepareData(school , realm);
                         realm.commitTransaction();
-
+                        realm.close();
                         CustomizeToast cuToast = new CustomizeToast("info");
                         Toast toast = cuToast.getCustomizeToast(schoolUpdatingView.getContext(),"Save Successfully!");
                         toast.show();
@@ -374,7 +370,7 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
                                 .equalTo("id", school.getId()).findFirst();
                         prepareData(updateSchool , realm);
                         realm.commitTransaction();
-
+                        realm.close();
                         CustomizeToast cuToast = new CustomizeToast("info");
                         Toast toast = cuToast.getCustomizeToast(schoolUpdatingView.getContext(),"Update Successfully!");
                         toast.show();
@@ -482,11 +478,8 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
         txtProfitRevlovingFund.setText(String.valueOf(school.getMonthlyRevolvingFund()));
         txtFeeFromParents.setText(String.valueOf(school.getFeeFromParent()));
         txtOtherIncome.setText(String.valueOf(school.getOtherIncome()));
-        txtMonthlyIncome.setText(String.valueOf(school.getTotalMonthlyIncome()));
         txtCaregiverSalary.setText(String.valueOf(school.getCaregiverSalary()));
         txtGeneralExpense.setText(String.valueOf(school.getGeneralExpense()));
-        txtTotalExpense.setText(String.valueOf(school.getTotalexpense()));
-        txtMontlyBalance.setText(String.valueOf(school.getMonthlyBalance()));
         txtIssue.setText(school.getIssue());
         if(school.getCompleteResolve() == 0)
         {
@@ -714,6 +707,7 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
         userid = school.getCreatedUsername();
 
         realm.commitTransaction();
+        realm.close();
         return  school;
     }
 
@@ -752,15 +746,14 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
             if(!txtOtherIncome.getText().toString().equals(""))
                 school.setOtherIncome(Double.parseDouble(txtOtherIncome.getText().toString()));
             else school.setOtherIncome(0);
-            school.setTotalMonthlyIncome(Double.parseDouble(txtOtherIncome.getText().toString())+Double.parseDouble(txtFeeFromParents.getText().toString())+Double.parseDouble(txtRevolvingFund.getText().toString()));
+
            if(!txtCaregiverSalary.getText().toString().equals(""))
                 school.setCaregiverSalary(Double.parseDouble(txtCaregiverSalary.getText().toString()));
             else school.setCaregiverSalary(0);
             if(!txtGeneralExpense.getText().toString().equals(""))
                 school.setGeneralExpense(Double.parseDouble(txtGeneralExpense.getText().toString()));
             else school.setGeneralExpense(0);
-            school.setTotalexpense(Double.parseDouble(txtCaregiverSalary.getText().toString())+Double.parseDouble(txtGeneralExpense.getText().toString()));
-            school.setMonthlyBalance(school.getTotalMonthlyIncome() - school.getTotalexpense());
+
             school.setCompleteResolve(getCompletelyResolve());
             school.setOpenClose(getCenterFuncion());
             school.setGetWater(getAvailabilityWater());

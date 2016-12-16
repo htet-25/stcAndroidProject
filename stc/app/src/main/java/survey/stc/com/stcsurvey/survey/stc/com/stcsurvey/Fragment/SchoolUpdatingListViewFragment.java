@@ -72,6 +72,7 @@ public class SchoolUpdatingListViewFragment extends Fragment{
         RealmResults<SchoolUpdatingData> realmResults = realm.where(SchoolUpdatingData.class).equalTo("schoolCode",key).findAll();
         realmResults.deleteAllFromRealm();
         realm.commitTransaction();
+        realm.close();
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
@@ -118,7 +119,7 @@ public class SchoolUpdatingListViewFragment extends Fragment{
         muploadSchoolList = realm.copyFromRealm(realmResults);
         resList =  realm.copyFromRealm(realmResults);
         realm.commitTransaction();
-
+        realm.close();
         return resList;
     }
 
@@ -149,6 +150,7 @@ public class SchoolUpdatingListViewFragment extends Fragment{
                 fragmentTransaction.commit();
             }
         });
+
 
         butUploadServer.setOnClickListener(new View.OnClickListener() {
             @Override

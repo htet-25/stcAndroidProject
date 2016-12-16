@@ -140,6 +140,7 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
                         SchoolUpdatingData school = realm.createObject(SchoolUpdatingData.class);
                         prepareData(school , realm);
                         realm.commitTransaction();
+                        realm.close();
                         CustomizeToast cuToast = new CustomizeToast("info");
                         Toast toast = cuToast.getCustomizeToast(schoolUpdatingView.getContext(),"Save Successfully!");
                         toast.show();
@@ -182,6 +183,7 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
                                 .equalTo("id", school.getId()).findFirst();
                         prepareData(updateSchool , realm);
                         realm.commitTransaction();
+                        realm.close();
                         Toast.makeText(schoolUpdatingView.getContext(),"Save Successfully!",Toast.LENGTH_LONG).show();
                     }
 
@@ -273,6 +275,7 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
         userid = school.getCreatedUsername();
 
         realm.commitTransaction();
+        realm.close();
         return  school;
     }
 

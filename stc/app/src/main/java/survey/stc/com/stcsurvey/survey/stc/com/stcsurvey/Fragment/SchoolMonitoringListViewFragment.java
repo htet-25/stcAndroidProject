@@ -69,6 +69,7 @@ public class SchoolMonitoringListViewFragment extends Fragment{
         RealmResults<SchoolMonitoringData> realmResults = realm.where(SchoolMonitoringData.class).equalTo("schoolCode",key).findAll();
         realmResults.deleteAllFromRealm();
         realm.commitTransaction();
+        realm.close();
     }
 
     public List<SchoolMonitoringData> getAllSchoolMonitoringLIist()
@@ -82,7 +83,7 @@ public class SchoolMonitoringListViewFragment extends Fragment{
         muploadSchoolList = realm.copyFromRealm(realmResults);
         resList =  realm.copyFromRealm(realmResults);
         realm.commitTransaction();
-
+        realm.close();
         return resList;
     }
 
