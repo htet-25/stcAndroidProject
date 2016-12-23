@@ -77,9 +77,14 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
     int id = 0;
     DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
-    public SchoolUpdatingRegisterFragment(int id)
+    public static SchoolUpdatingRegisterFragment newInstance(int id)
     {
-        this.id = id;
+        SchoolUpdatingRegisterFragment schoolRegisterFragment = new SchoolUpdatingRegisterFragment();
+        Bundle args = new Bundle();
+        args.putInt("id", id);
+        schoolRegisterFragment.setArguments(args);
+
+        return schoolRegisterFragment;
     }
 
     public void matchUi()
@@ -117,9 +122,11 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        this.id = getArguments().getInt("id");
         if(id == 0)
         {
             schoolUpdatingView  = inflater.inflate(R.layout.school_updating_register,container,false);
+
             Bundle bundle = this.getArguments();
             if(bundle != null)
             {

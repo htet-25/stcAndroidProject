@@ -281,13 +281,20 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
         lblTlmsSupport = (TextView) schoolUpdatingView.findViewById(R.id.lbl_sm_tlmsSupport);
     }
 
-    public SchoolMonitoringRegisterFragment(int id) {
-        this.id = id;
+    public static SchoolMonitoringRegisterFragment newInstance(int id)
+    {
+        SchoolMonitoringRegisterFragment schoolMonitoringFragment = new SchoolMonitoringRegisterFragment();
+        Bundle args = new Bundle();
+        args.putInt("id", id);
+        schoolMonitoringFragment.setArguments(args);
+
+        return schoolMonitoringFragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        this.id = getArguments().getInt("id");
         if(id == 0)
         {
             schoolUpdatingView  = inflater.inflate(R.layout.school_monitoring_register,container,false);

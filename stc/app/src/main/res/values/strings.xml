@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">STC Servey</string>
+    <string name="app_name">STC Survey</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">User Name</string>

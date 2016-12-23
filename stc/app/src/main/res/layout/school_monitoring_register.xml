@@ -912,7 +912,6 @@
             <EditText
                 android:layout_width="@dimen/su_male_female_description"
                 android:layout_height="wrap_content"
-                android:inputType="number|numberSigned"
                 android:ems="10"
                 android:id="@+id/txt_sm_description_enrolled_children_3_5"
                 android:layout_weight="1" />

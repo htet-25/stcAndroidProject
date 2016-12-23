@@ -139,7 +139,7 @@ public class SchoolMonitoringListViewFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 int id = schoolList.get(position).getId();
-                Fragment fragment = new SchoolMonitoringRegisterFragment(id);
+                Fragment fragment =  SchoolMonitoringRegisterFragment.newInstance(id);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, fragment);

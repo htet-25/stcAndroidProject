@@ -192,7 +192,7 @@ public class DrawerLayoutActivity extends AppCompatActivity
 
 
         if (id == R.id.su_update) {
-            fragment = new SchoolUpdatingRegisterFragment(0);
+            fragment =  SchoolUpdatingRegisterFragment.newInstance(0);
             title = "School Updating";
             Bundle args = new Bundle();
             args.putString("userid",user.getUserId());
@@ -203,7 +203,7 @@ public class DrawerLayoutActivity extends AppCompatActivity
             title = "School Updating Log";
         }else if(id == R.id.sm_register)
         {
-            fragment = new SchoolMonitoringRegisterFragment(0);
+            fragment =  SchoolMonitoringRegisterFragment.newInstance(0);
             title = "School Monitoring Register";
         }else if(id == R.id.sm_search)
         {
@@ -224,7 +224,7 @@ public class DrawerLayoutActivity extends AppCompatActivity
             System.exit(0);
         }else
         {
-            fragment = new SchoolUpdatingRegisterFragment(0);
+            fragment =  SchoolUpdatingRegisterFragment.newInstance(0);
             title = "School Updating";
             Bundle args = new Bundle();
             args.putString("userid",user.getUserId());
