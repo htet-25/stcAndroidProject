@@ -92,17 +92,17 @@ public class DrawerLayoutActivity extends AppCompatActivity
     }
 
     public User getUserByid(int id)
-    {
-        User user = new User();
+        {
+            User user = new User();
 
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(getApplicationContext()).deleteRealmIfMigrationNeeded().build();
-        Realm realm = Realm.getInstance(realmConfig);
-        realm.beginTransaction();
-        RealmResults<User> results = realm.where(User.class).equalTo("id",id).findAll();
-        List<User> userData = realm.copyFromRealm(results);
-        realm.commitTransaction();
+            RealmConfiguration realmConfig = new RealmConfiguration.Builder(getApplicationContext()).deleteRealmIfMigrationNeeded().build();
+            Realm realm = Realm.getInstance(realmConfig);
+            realm.beginTransaction();
+            RealmResults<User> results = realm.where(User.class).equalTo("id",id).findAll();
+            List<User> userData = realm.copyFromRealm(results);
+            realm.commitTransaction();
 
-        return userData.get(0);
+            return userData.get(0);
     }
     boolean doubleBackToExitPressedOnce = false;
 
