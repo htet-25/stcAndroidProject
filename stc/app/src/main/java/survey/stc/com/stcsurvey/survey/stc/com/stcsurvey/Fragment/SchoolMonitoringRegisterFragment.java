@@ -357,6 +357,7 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
             schoolUpdatingView  = inflater.inflate(R.layout.school_monitoring_register,container,false);
            final SchoolMonitoringData school = getSchoolMonitoringDataById(id , schoolUpdatingView.getContext());
             matchUi();
+
             createActivitySpinner();
             createDstBtwSchoolServiceSpinner();
             createDstBtwSchoolTownSpinner();

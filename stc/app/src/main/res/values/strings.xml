@@ -16,8 +16,8 @@
     </string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-  <!--  <string name="server_url">http://128.199.132.190:8080/stcEdu/</string>-->
-    <string name="server_url">http://192.168.27.111:9080/stcEdu/</string>
+  <string name="server_url">http://128.199.132.190:8080/stcEdu/</string>
+
 
     <string name="su">School Updating</string>
     <string name="su_sc_register">Updating School Register</string>
@@ -59,9 +59,60 @@
     <string name="sm_trained_pefs"><u><b>No. of Trained PEFs</b></u></string>
     <string name="sm_eccd_mcs"><u><b>No. of ECCD MCs</b></u></string>
     <string name="sm_trained_eccd_mcs"><u><b>No. of Trained ECCD MCs</b></u></string>
-
     <string name="confirm_msg">Are you sure want to exit?</string>
     <string name="exit">Exit</string>
     <string name="cancel">Cancel</string>
 
+    <!--School Updating-->
+    <string name="school_code_transl">ေက်ာင္းကုဒ္နံပါတ္</string>
+    <string name="township_transl">ၿမိဳ႕နယ္အမည္</string>
+    <string name="activity_transl">ကိုယ္သြားသည့္ရြာသည္ ECCD လုပ္ငန္းလား၊ APE လုပ္ငန္းလားေရြးျပီးထည့္ရန္။</string>
+    <string name="village_transl">ရြာအမည္ထည့္ရန္။</string>
+    <string name="updating_transl">ကိုယ္အခ်က္အလက္ယူသည့္ လ၊ ရက္၊ ႏွစ္ ကိုေရြးျပီးထည့္ရန္။</string>
+    <string name="ernolled_transl">ေက်ာင္းအပ္သည့္ကေလး</string>
+    <string name="poor_transl">ေက်ာင္းအပ္သည့္ဆင္းရဲေသာကေလး</string>
+    <string name="disable_transl">ေက်ာင္းအပ္သည့္မသန္စြမ္းကေလး</string>
+    <string name="ethnic_transl">ေက်ာင္းအပ္သည့္တိုင္းရင္းသားကေလး</string>
+    <string name="trained_cgs_transl">သင္တန္းရေသာ ECCD ဆရာမ</string>
+    <string name="trained_pefs_transl">သင္တန္းရေသာ မိဘပညာေပးဦးေဆာင္သူ</string>
+    <string name="trained_mcs_transl">သင္တန္းရေသာ ECCD ေကာ္မတီ</string>
+
+    <!-- Schoool Monitoring -->
+    <string name="establish_transl">စတင္တည္ေထာင္ေသာ လ၊ ရက္၊ ႏွစ္ ကိုေရြးျပီးထည့္ရန္။</string>
+    <string name="building_size_transl">ECCD  ေက်ာင္းအေဆာက္အဦ၏ အလ်ား၊ အနံ၊ အျမင့္ ကိုထည့္ရန္။</string>
+    <string name="compound_size_transl">ေက်ာင္းဝင္းအက်ယ္အဝန္း၏ အလ်ား၊ အနံ ကိုထည့္ရန္။</string>
+    <string name="latring_transl">အိမ္သာဘယ္ႏွစ္လံုးရွိလဲထည့္ရန္။</string>
+    <string name="clean_water_transl">သန္႔ရွင္းေသာေရရလွ်င္( yes ကိုေရြးျပီး မရလွ်င္ No ကိုထည့္ရန္။)</string>
+    <string name="dist_btw_service_town_transl">ECCD ေက်ာင္းႏွင့္ ျမိဳ႕အကြာအေဝး။</string>
+    <string name="dist_btw_service_school_transl">ECCD ေက်ာင္းႏွင့္ အစိုးရစာသင္ေက်ာင္းအကြာအေဝး။</string>
+    <string name="mc_meeting_transl">ECCD ေကာ္မတီအစည္းအေဝးအၾကိမ္ေရ(လစဥ္၊ ၂လ၁ၾကိမ္၊ ၃ လ ၁ၾကိမ္၊ ၆ လ ၁ ၾကိမ္၊ ၁ ႏွစ္ ၁ ၾကိမ္၊ လိုအပ္သည့္အခ်ိန္၊ လံုးဝမလုပ္ပါ)စသည္တို႔မွတစ္ခုကိုေရြးထည့္ရန္။</string>
+    <string name="revolving_fund_transl">ရွိေသာရံပံုေငြအေရအတြက္ကိုထည့္ရန္။</string>
+    <string name="profit_revolving_fan_transl">ရန္ပံုေငြမွလစဥ္ရသည့္စုစုေပါင္းအတိုးကိုထည့္ရန္။</string>
+    <string name="fee_parents_transl">လစဥ္ရသည့္ကေလးေက်ာင္းလခစုစုေပါင္းကိုထည့္ရန္။</string>
+    <string name="other_income_transl">လစဥ္ရသည့္အျခားဝင္ေငြစုစုေပါင္းကိုထည့္ရန္။</string>
+    <string name="caregiver_salary_transl">လစဥ္ေပးရေသာ ဆရာမလစာ စုစုေပါင္းကိုထည့္ရန္။</string>
+    <string name="general_expense_transl">လစဥ္အေထြေထြသံုးစရိတ္ကိုထည့္ရန္(ဥပမာ- စာရြက္ဝယ္ျခင္း)</string>
+    <string name="issue_transl">လက္ရွိၾကံဳေတြ႕ေနရေသာအခက္အခဲ၊ ျပသနာကိုထည့္ရန္(ျမန္မာလိုထည့္နိုင္ပါသည္)</string>
+    <string name="complete_resolve_transl">အထက္ပါၾကံဳေတြေနရသာအခက္အခဲ၊ ျပသနာကိုေျဖရွင္းျပီးလွ်င္ Yes မျပီးလွ်င္ No ကိုေရြးရန္။</string>
+    <string name="center_frunctioning_transl">ECCD ေက်ာင္းဖြင့္ထားလွ်င္ Open ကိုေရြး၊ ပိတ္ထားလွ်င္ Close ကိုေရြး။</string>
+    <string name="minimum_eccdape_score_transl">အနိမ့္ဆံုးရွိရမ ECCD ။ APE ရမွတ္ကိုထည့္ရန္။</string>
+    <string name="technical_support_transl">နည္းပညာပံ့ပိုးေသာအဖြဲ႔၏အမည္ကိုထည့္ရန္။</string>
+    <string name="funcing_support_transl">ရန္ပံုေငြပံ့ပိုးေသာအဖြဲ႔၏အမည္ကိုထည့္ရန္။</string>
+    <string name="tlms_support_transl">သင္ေထာက္ကူပံ့ပိုးေသာအဖြဲ႔၏အမည္ကိုထည့္ရန္။</string>
+    <string name="zero_three_village_children_transl">ရြာထဲရွိ ေမြးစမွသံုးႏွစ္ ကေလးအေရအတြက္</string>
+    <string name="three_five_village_children_transl">ရြာထဲရွိ သံုးႏွစ္မွငါးႏွစ္ ကေလးအေရအတြက္</string>
+    <string name="zero_three_enrolled_children_transl">ECCD ေက်ာင္းအပ္ေသာ ေမြးစမွသံုးႏွစ္ ကေလးအေရအတြက္</string>
+    <string name="three_five_enrolled_children_transl">ရြာထဲရွိ သံုးႏွစ္မွငါးႏွစ္ ECCD ေက်ာင္းအပ္ကေလးအေရအတြက္</string>
+    <string name="children_attending_transl">ကိုယ္ရြာသြားသည့္ေန႔တြင္ေက်ာင္းတက္ေနေသာကေလးအေရအတြက္</string>
+    <string name="transition_transl">မူလတန္းေက်ာင္းေျပာင္းသြားေသာကေလးအေရအတြက္</string>
+    <string name="zero_three_poor_enrolled_children">ECCD  ေက်ာင္းအပ္ေသာ ဆင္းရဲသည့္ေမြးစမွသံုးႏွစ္ ကေလးအေရအတြက္</string>
+    <string name="three_five_poor_enrolled_children">ECCD  ေက်ာင္းအပ္ေသာ ဆင္းရဲသည့္ သံုးနွစ္မွငါးႏွစ္ ကေလးအေရအတြက္</string>
+    <string name="zero_three_disable_children_transl">ရြာထဲရွိ ေမြးစမွသံုးႏွစ္ မသန္စြမ္းကေလးအေရအတြက္</string>
+    <string name="three_five_disable_children_transl">ရြာထဲရွိ သံုးႏွစ္မွငါးႏွစ္ မသန္စြမ္းကေလးအေရအတြက္</string>
+    <string name="disable_children_attending_transl">ကိုယ္သြားသည့္ေန႔တြက္ ECCD ေက်ာင္းတက္သည့္ မသန္စြမ္းကေလးအေရအတြက္</string>
+    <string name="transition_kg_transl">KG သို႔ေျပာင္းသြားေသာ မသန္စြမ္းကေလးအေရအတြက္</string>
+    <string name="zero_three_ethnic_children_transl">ECCD ေက်ာင္းအပ္သည့္ ေမြးစမွသံုးႏွစ္ တိုင္းရင္းသားကေလးအေရအတြက္</string>
+    <string name="three_five_ethnic_children_transl">ECCD ေက်ာင္းအပ္သည့္ သံုးႏွစ္မွငါးႏွစ္ တိုင္းရင္းသားကေလးအေရအတြက္</string>
+    <string name="caregivers_transl">ECCD ဆရာမအေရအတြက္</string>
+  <string name="trained_caregivers_transl">သင္တန္းရျပီးေသာ ECCD ဆရာမအေရအတြက္</string>
 </resources>

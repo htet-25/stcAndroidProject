@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="@string/su">
         <menu>
             <item
                 android:id="@+id/su_update"
-                android:title="@string/su_sc_register"/>
+                android:title="@string/su_sc_register" />
             <item
                 android:id="@+id/su_search"
                 android:title="@string/su_sc_search" />
         </menu>
     </item>
-
     <item android:title="@string/sm">
         <menu>
             <item
