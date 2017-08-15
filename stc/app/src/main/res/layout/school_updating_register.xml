@@ -21,7 +21,7 @@
             android:text="School Code"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:id="@+id/txt1"
+            android:id="@+id/lblSchoolCode"
             android:layout_width="150dp" />
 
             <EditText
@@ -42,7 +42,7 @@
                 android:text="Township"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txt2"
+                android:id="@+id/lblTownship"
                 android:layout_width="150dp" />
 
 
@@ -68,7 +68,7 @@
                 android:text="Type of Activity"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txt3"
+                android:id="@+id/lblActivity"
                 android:layout_width="150dp" />
 
             <Spinner
@@ -87,7 +87,7 @@
                 android:text="Village Name"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txt4"
+                android:id="@+id/lbl_village"
                 android:layout_width="150dp" />
             <EditText
                 android:layout_width="wrap_content"
@@ -107,7 +107,7 @@
                 android:text="Updating Date"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txt5"
+                android:id="@+id/lblUpdatingDate"
                 android:layout_width="150dp" />
 
             <Button
@@ -326,7 +326,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="18dp"
-            android:id="@+id/lbl_su_enrollment_data" />
+            android:id="@+id/lbl_su_enrollment_Ethnicdata" />
         <LinearLayout
             android:layout_width="@dimen/su_male_female_layout"
             android:layout_height="wrap_content"
@@ -601,6 +601,11 @@
                 android:background="@drawable/custom_button"
                 android:layout_weight="1" />
         </LinearLayout>
+
+
+
+
+
 
 
     </LinearLayout>

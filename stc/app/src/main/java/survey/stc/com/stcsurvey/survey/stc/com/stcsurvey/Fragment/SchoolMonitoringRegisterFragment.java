@@ -6,6 +6,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -151,9 +152,56 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
     EditText txtMaleTrainedEccdMcs;
     EditText txtFemaleTrainedEccdMcs;
     EditText txtDescriptionTrainedEccdMcs;
+    TextView lblSchoolCode;
+    TextView lblTownship;
+    TextView lblActivity;
+    TextView lblVillageName;
+    TextView lblUpdatingDate;
+    TextView lblEstablishedDate;
+    TextView lblBuildingSize;
+    TextView lblCompoundSize;
+    TextView lblLatrine;
+    TextView lblCleanWater;
+    TextView lblDistanceBtwServiceTown;
+    TextView lblDistanceBtwServiceSchool;
+    TextView lblMCmeeting;
+    TextView lblRevolvingfund;
+    TextView lblProfitFund;
+    TextView lblFeeFromParent;
+    TextView lblOtherIncome;
+    TextView lblCargiverSalary;
+    TextView lblGeneralExpense;
+    TextView lblIssue;
+    TextView lblCompleteResolve;
+    TextView lblCenterFunction;
+    TextView lblMinimumScore;
     TextView lblTechnicalSupport;
     TextView lblFundingSupport;
     TextView lblTlmsSupport;
+    TextView lblNoOf0t3ChildrenVillage;
+    TextView lblNoOf3t5ChildrenVillage;
+    TextView lblNoOf0t3EnrolledChildren;
+    TextView lblNoOf3t5EnrolledChildren;
+    TextView lblAttendingChildren;
+    TextView lblTransitionBE;
+    TextView lblNoOf0t3PoorChildren;
+    TextView lblNoOf3t5PoorChildren;
+    TextView lblNoOf0t3DisableChildren;
+    TextView lblNoOf3t5DisableChildren;
+    TextView lblNoOf0t3DisableEnrollChildren;
+    TextView lblNoOf3t5DisableEnrollChildren;
+    TextView lblAttendingDisableChildren;
+    TextView lblKGTransition;
+    TextView lblNoOf0t3EthnicChildren;
+    TextView lblNoOf3t5EthnicChildren;
+    TextView lblCargivers;
+    TextView lblTrainedCaegivers;
+    TextView lblPeEFS;
+    TextView lblTrainedPEFS;
+    TextView lblMCS;
+    TextView lblTrainedMCS;
+
+    
     Button butSave;
     View schoolUpdatingView;
     int activityKey = 0;
@@ -276,9 +324,402 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
         txtMaleTrainedEccdMcs = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_male_trained_eccd_mcs);
         txtFemaleTrainedEccdMcs = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_female_trained_eccd_mcs);
         txtDescriptionTrainedEccdMcs = (EditText) schoolUpdatingView.findViewById(R.id.txt_sm_description_trained_eccd_mcs);
+        lblSchoolCode = (TextView) schoolUpdatingView.findViewById(R.id.lbl_sm_schoolcode);
+        lblTownship = (TextView) schoolUpdatingView.findViewById(R.id.lbl_sm_township);
+        lblActivity = (TextView) schoolUpdatingView.findViewById(R.id.lbl_sm_activity);
+        lblVillageName = (TextView) schoolUpdatingView.findViewById(R.id.lbl_sm_villagename);
+        lblUpdatingDate = (TextView) schoolUpdatingView.findViewById(R.id.lbl_sm_updatingDate);
+        lblEstablishedDate = (TextView) schoolUpdatingView.findViewById(R.id.lblEstablisheDate);
+        lblBuildingSize = (TextView) schoolUpdatingView.findViewById(R.id.lblBuildingSize);
+        lblCompoundSize = (TextView) schoolUpdatingView.findViewById(R.id.lblCompoundSize);
+        lblLatrine = (TextView) schoolUpdatingView.findViewById(R.id.lblLatrine);
+        lblCleanWater = (TextView) schoolUpdatingView.findViewById(R.id.lblCleanWater);
+        lblDistanceBtwServiceTown = (TextView) schoolUpdatingView.findViewById(R.id.lblDstServiceTown);
+        lblDistanceBtwServiceSchool = (TextView) schoolUpdatingView.findViewById(R.id.lblDstServiceSchool);
+        lblMCmeeting = (TextView) schoolUpdatingView.findViewById(R.id.lblMCmeeting);
+        lblRevolvingfund = (TextView) schoolUpdatingView.findViewById(R.id.lblRevolving);
+        lblProfitFund = (TextView) schoolUpdatingView.findViewById(R.id.lblporfit);
+        lblFeeFromParent = (TextView) schoolUpdatingView.findViewById(R.id.lblfeefromParent);
+        lblOtherIncome = (TextView) schoolUpdatingView.findViewById(R.id.lblIncome);
+        lblCargiverSalary = (TextView) schoolUpdatingView.findViewById(R.id.lblCargiverSalary);
+        lblIssue = (TextView) schoolUpdatingView.findViewById(R.id.lblIssue);
+        lblGeneralExpense = (TextView) schoolUpdatingView.findViewById(R.id.lblGeneralExpense);
+        lblCompleteResolve = (TextView) schoolUpdatingView.findViewById(R.id.lblCompleteResolve);
+        lblCenterFunction = (TextView) schoolUpdatingView.findViewById(R.id.lblCenterFunctioning);
+        lblMinimumScore = (TextView) schoolUpdatingView.findViewById(R.id.lblECCDapeScore);
         lblFundingSupport = (TextView) schoolUpdatingView.findViewById(R.id.lbl_sm_funding_support);
         lblTechnicalSupport = (TextView) schoolUpdatingView.findViewById(R.id.lbl_sm_technicalSupport);
         lblTlmsSupport = (TextView) schoolUpdatingView.findViewById(R.id.lbl_sm_tlmsSupport);
+        lblNoOf0t3ChildrenVillage = (TextView) schoolUpdatingView.findViewById(R.id.lbl0t3VillageChildren);
+        lblNoOf3t5ChildrenVillage = (TextView) schoolUpdatingView.findViewById(R.id.lbl3t5VillageChildren);
+        lblNoOf0t3EnrolledChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl0t3EnrollChildren);
+        lblNoOf3t5EnrolledChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl3t5EnrollChildren);
+        lblAttendingChildren = (TextView) schoolUpdatingView.findViewById(R.id.lblChildrenAttending);
+        lblTransitionBE = (TextView) schoolUpdatingView.findViewById(R.id.lblBEtransition);
+        lblNoOf0t3PoorChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl0t3poorChildren);
+        lblNoOf3t5PoorChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl3t5poorChildren);
+        lblNoOf0t3DisableChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl0t3DisableChildren);
+        lblNoOf3t5DisableChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl3t5DisableChildren);
+        lblNoOf0t3DisableEnrollChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl0t3EnrollDisableChildren);
+        lblNoOf3t5DisableEnrollChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl3t5EnrollDisableChildren);
+        lblAttendingDisableChildren = (TextView) schoolUpdatingView.findViewById(R.id.lblDisableChildrenAttending);
+        lblKGTransition = (TextView) schoolUpdatingView.findViewById(R.id.lblTransitionKG);
+        lblNoOf0t3EthnicChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl0t3EthnicChildren);
+        lblNoOf3t5EthnicChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl3t5EthnicChildren);
+        lblCargivers = (TextView) schoolUpdatingView.findViewById(R.id.lblCargivers);
+        lblTrainedCaegivers = (TextView) schoolUpdatingView.findViewById(R.id.lblTrainedCaregivers);
+        lblPeEFS = (TextView) schoolUpdatingView.findViewById(R.id.lblPEFS);
+        lblTrainedPEFS = (TextView) schoolUpdatingView.findViewById(R.id.lblTrainedPEFS);
+        lblMCS = (TextView) schoolUpdatingView.findViewById(R.id.lblMCS);
+        lblTrainedMCS = (TextView) schoolUpdatingView.findViewById(R.id.lblTrainedMCS);
+    }
+
+    public void addTranslateEvent() {
+        final Resources res = getResources();
+        lblSchoolCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.school_code_transl));
+            }
+        });
+
+        lblTownship.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.township_transl));
+            }
+        });
+
+        lblActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.activity_transl));
+            }
+        });
+
+        lblVillageName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.village_transl));
+            }
+        });
+
+        lblUpdatingDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.updating_transl));
+            }
+        });
+
+        lblEstablishedDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.establish_transl));
+            }
+        });
+
+        lblBuildingSize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.building_size_transl));
+            }
+        });
+
+        lblCompoundSize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.compound_size_transl));
+            }
+        });
+
+        lblLatrine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.latrine_transl));
+            }
+        });
+
+        lblCleanWater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.clean_water_transl));
+            }
+        });
+
+        lblDistanceBtwServiceTown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.dist_btw_service_town_transl));
+            }
+        });
+
+        lblDistanceBtwServiceSchool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.dist_btw_service_school_transl));
+            }
+        });
+
+        lblMCmeeting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.mc_meeting_transl));
+            }
+        });
+
+        lblRevolvingfund.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.revolving_fund_transl));
+            }
+        });
+
+        lblProfitFund.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.profit_revolving_fund_transl));
+            }
+        });
+
+        lblFeeFromParent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.fee_parents_transl));
+            }
+        });
+
+        lblOtherIncome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.other_income_transl));
+            }
+        });
+
+        lblCargiverSalary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.caregiver_salary_transl));
+            }
+        });
+
+        lblGeneralExpense.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.general_expense_transl));
+            }
+        });
+
+        lblIssue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.issue_transl));
+            }
+        });
+
+        lblCompleteResolve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.complete_resolve_transl));
+            }
+        });
+
+        lblCenterFunction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.center_frunctioning_transl));
+            }
+        });
+
+        lblMinimumScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.minimum_eccdape_score_transl));
+            }
+        });
+
+        lblTechnicalSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.technical_support_transl));
+            }
+        });
+
+        lblFundingSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.funding_support_transl));
+            }
+        });
+
+        lblTlmsSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.tlms_support_transl));
+            }
+        });
+
+        lblNoOf0t3ChildrenVillage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.zero_three_village_children_transl));
+            }
+        });
+
+        lblNoOf3t5ChildrenVillage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.three_five_village_children_transl));
+            }
+        });
+
+        lblNoOf0t3EnrolledChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.zero_three_enrolled_children_transl));
+            }
+        });
+
+        lblNoOf3t5EnrolledChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.three_five_enrolled_children_transl));
+            }
+        });
+
+        lblAttendingChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.children_attending_transl));
+            }
+        });
+
+        lblTransitionBE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.transition_transl));
+            }
+        });
+
+        lblNoOf0t3PoorChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.zero_three_poor_enrolled_children));
+            }
+        });
+
+        lblNoOf3t5PoorChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.three_five_poor_enrolled_children));
+            }
+        });
+
+        lblNoOf0t3DisableChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.zero_three_disable_children_transl));
+            }
+        });
+
+        lblNoOf3t5DisableChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.three_five_disable_children_transl));
+            }
+        });
+
+        lblNoOf0t3DisableEnrollChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.zero_three_disable_enroll_children_transl));
+            }
+        });
+
+        lblNoOf3t5DisableEnrollChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.three_five_disable_enroll_children_transl));
+            }
+        });
+
+        lblAttendingDisableChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.disable_children_attending_transl));
+            }
+        });
+
+        lblKGTransition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.transition_kg_transl));
+            }
+        });
+
+        lblNoOf0t3EthnicChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.zero_three_ethnic_children_transl));
+            }
+        });
+
+        lblNoOf3t5EthnicChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.three_five_ethnic_children_transl));
+            }
+        });
+
+        lblCargivers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.caregivers_transl));
+            }
+        });
+
+        lblTrainedCaegivers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.trained_caregivers_transl));
+            }
+        });
+
+        lblPeEFS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.pefs_transl));
+            }
+        });
+
+        lblTrainedPEFS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.trained_pefs_transl));
+            }
+        });
+
+        lblMCS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.mcs_transl));
+            }
+        });
+
+        lblTrainedMCS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.trained_mcs_transl));
+
+            }
+        });
+
+    }
+
+    public void showPopupMessage(String message)
+    {
+        CustomizeToast cuToast = new CustomizeToast("lbl");
+        Toast toast = cuToast.getCustomizeToast(schoolUpdatingView.getContext(),message);
+        toast.show();
     }
 
     public static SchoolMonitoringRegisterFragment newInstance(int id)
@@ -355,6 +796,7 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
         }else
         {
             schoolUpdatingView  = inflater.inflate(R.layout.school_monitoring_register,container,false);
+
            final SchoolMonitoringData school = getSchoolMonitoringDataById(id , schoolUpdatingView.getContext());
             matchUi();
 
@@ -404,6 +846,7 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
                 }
             });
         }
+        addTranslateEvent();
        return  schoolUpdatingView;
     }
 

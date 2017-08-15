@@ -27,7 +27,7 @@
             android:text="School Code"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:id="@+id/txt1"
+            android:id="@+id/lbl_sm_schoolcode"
             android:layout_width="150dp" />
 
             <EditText
@@ -48,7 +48,7 @@
                 android:text="Township"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txt2"
+                android:id="@+id/lbl_sm_township"
                 android:layout_width="150dp" />
 
 
@@ -72,7 +72,7 @@
                 android:text="Type of Activity"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txt3"
+                android:id="@+id/lbl_sm_activity"
                 android:layout_width="150dp" />
 
             <Spinner
@@ -91,7 +91,7 @@
                 android:text="Village Name"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txt4"
+                android:id="@+id/lbl_sm_villagename"
                 android:layout_width="150dp" />
             <EditText
                 android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
                 android:text="Updating Date"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txt5"
+                android:id="@+id/lbl_sm_updatingDate"
                 android:layout_width="150dp" />
 
             <Button
@@ -132,7 +132,7 @@
                 android:text="Established Year"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txtEstablished"
+                android:id="@+id/lblEstablisheDate"
                 android:layout_width="150dp" />
 
             <Button
@@ -152,7 +152,7 @@
                 android:text="Size of building"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txtBuilding"
+                android:id="@+id/lblBuildingSize"
                 android:layout_width="150dp" />
             <EditText
                 android:layout_width="wrap_content"
@@ -172,7 +172,7 @@
                 android:text="School's Compound size"
                 android:layout_height="61dp"
                 android:textSize="18dp"
-                android:id="@+id/txtCompound"
+                android:id="@+id/lblCompoundSize"
                 android:layout_width="150dp" />
             <EditText
                 android:layout_width="wrap_content"
@@ -192,7 +192,7 @@
                 android:text="No of Latrine"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txtLatrine"
+                android:id="@+id/lblLatrine"
                 android:layout_width="150dp" />
 
             <EditText
@@ -213,7 +213,7 @@
                 android:text="Clean Water"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txtCleanWater"
+                android:id="@+id/lblCleanWater"
                 android:layout_width="150dp" />
             <RadioGroup
                 android:id="@+id/rdoCleanWaterGroup"
@@ -249,6 +249,7 @@
             android:orientation="horizontal">
             <TextView
                 android:text="Distance Btw Service and Town"
+                android:id="@+id/lblDstServiceTown"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
                 android:layout_width="150dp" />
@@ -267,6 +268,7 @@
             <TextView
                 android:text="Distance Btw Service and School"
                 android:layout_height="wrap_content"
+                android:id="@+id/lblDstServiceSchool"
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
@@ -284,6 +286,7 @@
             <TextView
                 android:text="MC meeting's Frequency"
                 android:layout_height="wrap_content"
+                android:id="@+id/lblMCmeeting"
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
@@ -302,7 +305,7 @@
                 android:text="Revolving fund"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txtRevolving"
+                android:id="@+id/lblRevolving"
                 android:layout_width="150dp" />
 
             <EditText
@@ -320,10 +323,10 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="Profit from Revolving fund"
+                android:text="Profit from revolving fund"
                 android:layout_height="61dp"
                 android:textSize="18dp"
-                android:id="@+id/txtporfit"
+                android:id="@+id/lblporfit"
                 android:layout_width="150dp" />
 
             <EditText
@@ -365,7 +368,7 @@
                 android:text="Other Income"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:id="@+id/txtIncome"
+                android:id="@+id/lblIncome"
                 android:layout_width="150dp" />
 
             <EditText
@@ -407,6 +410,7 @@
                 android:text="Caregiver Salary"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
+                android:id="@+id/lblCargiverSalary"
                 android:layout_width="150dp" />
 
             <EditText
@@ -427,6 +431,7 @@
                 android:text="General Expense"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
+                android:id="@+id/lblGeneralExpense"
                 android:layout_width="150dp" />
 
             <EditText
@@ -485,6 +490,7 @@
             <TextView
                 android:text="Issues/Problem"
                 android:layout_height="wrap_content"
+                android:id="@+id/lblIssue"
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
@@ -504,6 +510,7 @@
             <TextView
                 android:text="Complete Resolve?"
                 android:layout_height="wrap_content"
+                android:id="@+id/lblCompleteResolve"
                 android:textSize="18dp"
                 android:layout_width="150dp" />
             <RadioGroup
@@ -539,7 +546,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="center functioning?"
+                android:text="Center functioning?"
+                android:id="@+id/lblCenterFunctioning"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
                 android:layout_width="150dp" />
@@ -578,6 +586,7 @@
             <TextView
                 android:text="Minimum ECCD/APE Score"
                 android:layout_height="61dp"
+                android:id="@+id/lblECCDapeScore"
                 android:textSize="18dp"
                 android:layout_width="150dp" />
 
@@ -653,6 +662,7 @@
         <TextView
             android:text="@string/sm_children_village_0_3"
             android:layout_width="match_parent"
+            android:id="@+id/lbl0t3VillageChildren"
             android:layout_height="wrap_content"
             android:textSize="18dp" />
         <LinearLayout
@@ -722,7 +732,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:id="@+id/lbl_su_enrolled_poor" />
+            android:id="@+id/lbl3t5VillageChildren" />
         <LinearLayout
             android:layout_width="@dimen/su_male_female_layout"
             android:layout_height="wrap_content"
@@ -789,7 +799,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:id="@+id/lbl_su_enrolled_disable" />
+            android:id="@+id/lbl0t3EnrollChildren" />
         <LinearLayout
             android:layout_width="@dimen/su_male_female_layout"
             android:layout_height="wrap_content"
@@ -856,7 +866,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="18dp"
-            android:id="@+id/lbl_su_enrollment_data" />
+            android:id="@+id/lbl3t5EnrollChildren" />
         <LinearLayout
             android:layout_width="@dimen/su_male_female_layout"
             android:layout_height="wrap_content"
@@ -922,6 +932,7 @@
             android:text="@string/sm_children_attending"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/lblChildrenAttending"
             android:textStyle="bold"
             android:textSize="18dp" />
         <LinearLayout
@@ -989,6 +1000,7 @@
             android:text="@string/sm_transition_be"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/lblBEtransition"
             android:textStyle="bold"
             android:textSize="18dp" />
         <LinearLayout
@@ -1054,6 +1066,7 @@
 
         <TextView
             android:text="@string/sm_poor_children_enroll_0_3"
+            android:id="@+id/lbl0t3poorChildren"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -1125,7 +1138,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="18dp"
-            android:id="@+id/lbl_su_eccds_mcs" />
+            android:id="@+id/lbl3t5poorChildren" />
         <LinearLayout
             android:layout_width="@dimen/su_male_female_layout"
             android:layout_height="wrap_content"
@@ -1188,6 +1201,7 @@
 
         <TextView
             android:text="@string/sm_disable_children_village_0_3"
+            android:id="@+id/lbl0t3DisableChildren"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -1257,6 +1271,7 @@
             android:text="@string/sm_disable_children_village_3_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/lbl3t5DisableChildren"
             android:textStyle="bold"
             android:textSize="18dp"
             />
@@ -1324,6 +1339,7 @@
             android:text="@string/sm_disable_children_enroll_0_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/lbl0t3EnrollDisableChildren"
             android:textStyle="bold"
             android:textSize="18dp"
             />
@@ -1389,6 +1405,7 @@
 
         <TextView
             android:text="@string/sm_disable_children_enroll_3_5"
+            android:id="@+id/lbl3t5EnrollDisableChildren"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -1456,6 +1473,7 @@
 
         <TextView
             android:text="@string/sm_disable_children_attend"
+            android:id="@+id/lblDisableChildrenAttending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -1523,6 +1541,7 @@
 
         <TextView
             android:text="@string/sm_transition_kg"
+            android:id="@+id/lblTransitionKG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -1590,6 +1609,7 @@
 
         <TextView
             android:text="@string/sm_ethnic_enroll_0_3"
+            android:id="@+id/lbl0t3EthnicChildren"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -1658,6 +1678,7 @@
         <TextView
             android:text="@string/sm_ethnic_enroll_3_5"
             android:layout_width="wrap_content"
+            android:id="@+id/lbl3t5EthnicChildren"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="18dp"
@@ -1725,6 +1746,7 @@
         <TextView
             android:text="@string/sm_no_of_caregiver"
             android:layout_width="wrap_content"
+            android:id="@+id/lblCargivers"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="18dp"
@@ -1793,6 +1815,7 @@
             android:text="@string/sm_no_of_trained_caregiver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/lblTrainedCaregivers"
             android:textStyle="bold"
             android:textSize="18dp"
             />
@@ -1861,6 +1884,7 @@
             android:text="@string/sm_pefs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/lblPEFS"
             android:textStyle="bold"
             android:textSize="18dp"
             />
@@ -1928,6 +1952,7 @@
 
         <TextView
             android:text="@string/sm_trained_pefs"
+            android:id="@+id/lblTrainedPEFS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -1996,6 +2021,7 @@
 
         <TextView
             android:text="@string/sm_eccd_mcs"
+            android:id="@+id/lblMCS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -2064,6 +2090,7 @@
 
         <TextView
             android:text="@string/sm_trained_eccd_mcs"
+            android:id="@+id/lblTrainedMCS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"

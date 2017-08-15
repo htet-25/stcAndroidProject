@@ -2,19 +2,24 @@ package survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.Fragment;
 
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.reflect.Array;
@@ -66,6 +71,19 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
     EditText txtDescEccdCgs;
     EditText txtDescEccdpfs;
     EditText txtDescEccdMcs;
+    TextView lbltxtCode;
+    TextView lblTowonship;
+    TextView lblActivityType;
+    TextView lblVillageName;
+    TextView lblUpdatingDate;
+    TextView lblEnrolledChildren;
+    TextView lblEnrolledPoorChildren;
+    TextView lblEnrolledDisableChildren;
+    TextView lblEthnicEnrollment;
+    TextView lblTrainedCGS;
+    TextView lblTrainedPEFS;
+    TextView lblTrainedMCS;
+
     Button butSave;
     View schoolUpdatingView;
     int activityKey = 0;
@@ -116,6 +134,19 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
         txtDescEccdCgs = (EditText) schoolUpdatingView.findViewById(R.id.txt_description_eccds_cgs_5);
         txtDescEccdpfs = (EditText) schoolUpdatingView.findViewById(R.id.txt_description_pefs_6);
         txtDescEccdMcs = (EditText) schoolUpdatingView.findViewById(R.id.txt_description_eccds_mcs_7);
+        lbltxtCode = (TextView) schoolUpdatingView.findViewById(R.id.lblSchoolCode);
+        lblTowonship = (TextView) schoolUpdatingView.findViewById(R.id.lblTownship);
+        lblActivityType = (TextView) schoolUpdatingView.findViewById(R.id.lblActivity);
+        lblVillageName = (TextView) schoolUpdatingView.findViewById(R.id.lbl_village);
+        lblUpdatingDate = (TextView) schoolUpdatingView.findViewById(R.id.lblUpdatingDate);
+        lblEnrolledChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl_su_enrolledChildren);
+        lblEnrolledPoorChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl_su_enrolled_poor);
+        lblEnrolledDisableChildren = (TextView) schoolUpdatingView.findViewById(R.id.lbl_su_enrolled_disable);
+        lblEthnicEnrollment = (TextView) schoolUpdatingView.findViewById(R.id.lbl_su_enrollment_Ethnicdata);
+        lblTrainedCGS = (TextView) schoolUpdatingView.findViewById(R.id.lbl_su_eccds_cgs);
+        lblTrainedPEFS = (TextView) schoolUpdatingView.findViewById(R.id.lbl_su_pefs);
+        lblTrainedMCS = (TextView) schoolUpdatingView.findViewById(R.id.lbl_su_eccds_mcs);
+
     }
 
 
@@ -123,6 +154,7 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         this.id = getArguments().getInt("id");
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         if(id == 0)
         {
             schoolUpdatingView  = inflater.inflate(R.layout.school_updating_register,container,false);
@@ -191,7 +223,9 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
                         prepareData(updateSchool , realm);
                         realm.commitTransaction();
                         realm.close();
-                        Toast.makeText(schoolUpdatingView.getContext(),"Save Successfully!",Toast.LENGTH_LONG).show();
+                        CustomizeToast cuToast = new CustomizeToast("info");
+                        Toast toast = cuToast.getCustomizeToast(schoolUpdatingView.getContext(),"Update Successfully!");
+                        toast.show();
                     }
 
 
@@ -207,9 +241,105 @@ public class SchoolUpdatingRegisterFragment  extends Fragment implements Adapter
                 }
             });
         }
-
+        addTranslateEvent();
 
        return  schoolUpdatingView;
+    }
+
+    public void addTranslateEvent()
+    {
+        final Resources res = getResources();
+        lbltxtCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.school_code_transl));
+            }
+        });
+
+        lblTowonship.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.township_transl));
+            }
+        });
+
+        lblActivityType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.activity_transl));
+            }
+        });
+
+        lblVillageName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.village_transl));
+            }
+        });
+
+        lblUpdatingDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.updating_transl));
+            }
+        });
+
+        lblEnrolledChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.ernolled_transl));
+            }
+        });
+
+        lblEnrolledPoorChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.poor_transl));
+            }
+        });
+
+        lblEnrolledDisableChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.disable_transl));
+            }
+        });
+
+        lblEthnicEnrollment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.ethnic_transl));
+            }
+        });
+
+        lblTrainedCGS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.trained_cgs_transl));
+            }
+        });
+
+        lblTrainedPEFS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.trained_pefs_transl));
+            }
+        });
+
+        lblTrainedMCS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMessage(res.getString(R.string.trained_mcs_transl));
+            }
+        });
+
+    }
+
+    public void showPopupMessage(String message)
+    {
+        CustomizeToast cuToast = new CustomizeToast("lbl");
+        Toast toast = cuToast.getCustomizeToast(schoolUpdatingView.getContext(),message);
+        toast.show();
     }
 
     public void updateData(SchoolUpdatingData school)

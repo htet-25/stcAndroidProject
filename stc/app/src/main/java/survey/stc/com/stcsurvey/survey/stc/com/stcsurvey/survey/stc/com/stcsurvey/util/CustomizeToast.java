@@ -39,7 +39,13 @@ public class CustomizeToast {
             layout = inflater.inflate(R.layout.customize_error_toast , null);
             TextView txtInfo = (TextView) layout.findViewById(R.id.txt_error_toast);
             txtInfo.setText(infotext);
-        }else
+        }else if(toast_type.equals("lbl"))
+        {
+            layout = inflater.inflate(R.layout.customize_lbltransl_toast , null);
+            TextView txtInfo = (TextView) layout.findViewById(R.id.txt_lbl_toast);
+            txtInfo.setText(infotext);
+        }
+        else
         {
             layout = inflater.inflate(R.layout.customize_warn_toast , null);
             TextView txtInfo = (TextView) layout.findViewById(R.id.txt_error_toast);
