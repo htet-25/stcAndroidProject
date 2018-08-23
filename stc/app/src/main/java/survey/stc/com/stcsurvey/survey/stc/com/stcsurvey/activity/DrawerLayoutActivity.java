@@ -4,11 +4,15 @@ package survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.activity;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -95,8 +99,8 @@ public class DrawerLayoutActivity extends AppCompatActivity
         {
             User user = new User();
 
-            RealmConfiguration realmConfig = new RealmConfiguration.Builder(getApplicationContext()).deleteRealmIfMigrationNeeded().build();
-            Realm realm = Realm.getInstance(realmConfig);
+            Realm.init(getApplicationContext());
+            Realm realm = Realm.getDefaultInstance();
             realm.beginTransaction();
             RealmResults<User> results = realm.where(User.class).equalTo("id",id).findAll();
             List<User> userData = realm.copyFromRealm(results);
@@ -159,6 +163,8 @@ public class DrawerLayoutActivity extends AppCompatActivity
 
     }
 
+   
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -212,8 +218,8 @@ public class DrawerLayoutActivity extends AppCompatActivity
         }else if(id == R.id.sc_log_out)
         {
 
-            RealmConfiguration realmConfig = new RealmConfiguration.Builder(activity).deleteRealmIfMigrationNeeded().build();
-            Realm realm = Realm.getInstance(realmConfig);
+            Realm.init(getApplicationContext());
+            Realm realm = Realm.getDefaultInstance();
             realm.beginTransaction();
             RealmResults<User> realmResults = realm.where(User.class).findAll();
             realmResults.deleteAllFromRealm();

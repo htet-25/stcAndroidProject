@@ -37,8 +37,8 @@ public class StartActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
 
         activity = StartActivity.this;
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(getApplicationContext()).deleteRealmIfMigrationNeeded().build();
-        Realm realm = Realm.getInstance(realmConfig);
+        Realm.init(getApplicationContext());
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmResults<User> results = realm.where(User.class).findAll();
         realm.commitTransaction();

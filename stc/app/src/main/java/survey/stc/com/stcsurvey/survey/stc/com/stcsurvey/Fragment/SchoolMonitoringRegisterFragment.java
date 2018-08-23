@@ -756,8 +756,8 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
                 {
                     if(isValidate(schoolUpdatingView.getContext()))
                     {
-                        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolUpdatingView.getContext()).deleteRealmIfMigrationNeeded().build();
-                        Realm realm = Realm.getInstance(realmConfig);
+                        Realm.init(schoolUpdatingView.getContext());
+                        Realm realm = Realm.getDefaultInstance();
                         realm.beginTransaction();
                         SchoolMonitoringData school = realm.createObject(SchoolMonitoringData.class);
                         prepareData(school , realm);
@@ -813,8 +813,8 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
                 {
                     if(isValidate(schoolUpdatingView.getContext()))
                     {
-                        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolUpdatingView.getContext()).deleteRealmIfMigrationNeeded().build();
-                        Realm realm = Realm.getInstance(realmConfig);
+                        Realm.init(schoolUpdatingView.getContext());
+                        Realm realm = Realm.getDefaultInstance();
                         realm.beginTransaction();
                         SchoolMonitoringData updateSchool = realm.where(SchoolMonitoringData.class)
                                 .equalTo("id", school.getId()).findFirst();
@@ -1149,8 +1149,8 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
     public SchoolMonitoringData getSchoolMonitoringDataById(int id, Context contex)
     {
         SchoolMonitoringData school = new SchoolMonitoringData();
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(contex).deleteRealmIfMigrationNeeded().build();
-        Realm realm = Realm.getInstance(realmConfig);
+        Realm.init(schoolUpdatingView.getContext());
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmResults<SchoolMonitoringData> results = realm.where(SchoolMonitoringData.class).equalTo("id",id).findAll();
         List<SchoolMonitoringData> schoolList = realm.copyFromRealm(results);
@@ -1165,15 +1165,15 @@ public class SchoolMonitoringRegisterFragment extends Fragment implements Adapte
     public void prepareData(SchoolMonitoringData school , Realm realm)
     {
         try {
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             school.setCreatedUsername(userid);
             school.setModifiedUsername(userid);
-            school.setCreatedDate(new Date());
-            school.setModifiedDate(new Date());
+            school.setCreatedDate(df.parse(df.format(new Date())));
+            school.setModifiedDate(df.parse(df.format(new Date())));
             school.setSchoolCode(txtSchoolCode.getText().toString());
             school.setTowonship(txtTownship.getText().toString());
             school.setActivityType(activityKey);
             school.setVillagName(txtVillagename.getText().toString());
-            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             school.setGetWater(getAvailabilityWater());
             school.setMonitoringDate(df.parse(btnUpdateDate.getText().toString()));
             school.setEstablishDate(df.parse(btnEstablishDate.getText().toString()));

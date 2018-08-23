@@ -79,8 +79,8 @@ public class SchoolUpdatingCustomizeDialog extends AlertDialog{
     public SchoolUpdatingData getSchoolUpdatingDatabyId(int id , Context context)
     {
         SchoolUpdatingData school = new SchoolUpdatingData();
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(context).deleteRealmIfMigrationNeeded().build();
-        Realm realm = Realm.getInstance(realmConfig);
+        Realm.init(getContext());
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmResults<SchoolUpdatingData> results = realm.where(SchoolUpdatingData.class).equalTo("id",id).findAll();
         List<SchoolUpdatingData> schoolList = realm.copyFromRealm(results);

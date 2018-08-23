@@ -51,8 +51,8 @@ public class CustomizeSMListViewAdapter extends  ArrayAdapter<SchoolMonitoringDa
     public List<SchoolMonitoringData> getAllSchoolUpdatingLIist()
     {
         List<SchoolMonitoringData>resList = new ArrayList<>();
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(contex).deleteRealmIfMigrationNeeded().build();
-        Realm realm = Realm.getInstance(realmConfig);
+        Realm.init(contex);
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmResults<SchoolMonitoringData> realmResults = realm.where(SchoolMonitoringData.class).findAll();
 
@@ -103,8 +103,8 @@ public class CustomizeSMListViewAdapter extends  ArrayAdapter<SchoolMonitoringDa
             imgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    RealmConfiguration realmConfig = new RealmConfiguration.Builder(contex).deleteRealmIfMigrationNeeded().build();
-                    Realm realm = Realm.getInstance(realmConfig);
+                    Realm.init(contex);
+                    Realm realm = Realm.getDefaultInstance();
                     realm.beginTransaction();
                     RealmResults<SchoolMonitoringData> realmResults = realm.where(SchoolMonitoringData.class).equalTo("id",school.getId()).findAll();
                     realmResults.deleteAllFromRealm();

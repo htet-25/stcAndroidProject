@@ -20,6 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +52,7 @@ import survey.stc.com.stcsurvey.survey.stc.com.stcsurvey.survey.stc.com.stcsurve
  * Created by Htet Aung Naing on 10/21/2016.
  */
 
-public class SchoolMonitoringListViewFragment extends Fragment{
+public class SchoolMonitoringListViewFragment extends  Fragment {
 
     View schoolMonitoringListView;
     View mProgressView;
@@ -63,8 +64,8 @@ public class SchoolMonitoringListViewFragment extends Fragment{
 
     public void deleteSchoolUpdating(String key)
     {
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolMonitoringListView.getContext()).deleteRealmIfMigrationNeeded().build();
-        Realm realm = Realm.getInstance(realmConfig);
+        Realm.init(getContext());
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmResults<SchoolMonitoringData> realmResults = realm.where(SchoolMonitoringData.class).equalTo("schoolCode",key).findAll();
         realmResults.deleteAllFromRealm();
@@ -75,8 +76,8 @@ public class SchoolMonitoringListViewFragment extends Fragment{
     public List<SchoolMonitoringData> getAllSchoolMonitoringLIist()
     {
         List<SchoolMonitoringData>resList = new ArrayList<>();
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolMonitoringListView.getContext()).deleteRealmIfMigrationNeeded().build();
-        Realm realm = Realm.getInstance(realmConfig);
+        Realm.init(getContext());
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmResults<SchoolMonitoringData> realmResults = realm.where(SchoolMonitoringData.class).findAll();
 
@@ -153,6 +154,11 @@ public class SchoolMonitoringListViewFragment extends Fragment{
             public void onClick(View view) {
                 schoolWrapper.setSchoolLsit(muploadSchoolList);
 
+                GsonBuilder gsonBuilder = new GsonBuilder();
+                gsonBuilder.setDateFormat("yyyy-MM-dd");
+                Gson gson = gsonBuilder.create();
+
+
                 final OkHttpClient okHttpClient = new OkHttpClient.Builder()
                         .readTimeout(60, TimeUnit.SECONDS)
                         .connectTimeout(60, TimeUnit.SECONDS)
@@ -160,14 +166,14 @@ public class SchoolMonitoringListViewFragment extends Fragment{
 
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl(getString(R.string.server_url))
-                        .addConverterFactory(GsonConverterFactory.create())
+                        .addConverterFactory(GsonConverterFactory.create(gson))
                         .client(okHttpClient)
                         .build();
 
                 SchoolMonitoringRefrofitInterface schoolUpdateInterface = retrofit.create(SchoolMonitoringRefrofitInterface.class);
                 Call<ResponseData> schoolListcall = schoolUpdateInterface.uploadSchoolListtToserver(schoolWrapper);
                 SchoolMonitoringListWrapper schoolWrapper = new SchoolMonitoringListWrapper();
-                Gson gson = new Gson();
+
                 String schoolUpdatingJson = "";
                 if(muploadSchoolList.size()>0)
                 {
@@ -187,6 +193,7 @@ public class SchoolMonitoringListViewFragment extends Fragment{
                         @Override
                         public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
                             ResponseData res = response.body();
+                            String err = response.message();
                             if(res.isServerError())
                             {
                                 showProgress(false);

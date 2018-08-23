@@ -35,7 +35,7 @@
                 android:layout_gravity="center"
                 android:layout_height="150dp"
                 android:src="@drawable/log_in_logo"
-                />
+                tools:ignore="ContentDescription" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"

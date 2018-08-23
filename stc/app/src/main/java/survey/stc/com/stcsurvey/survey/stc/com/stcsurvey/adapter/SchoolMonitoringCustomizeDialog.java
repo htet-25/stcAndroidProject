@@ -150,8 +150,8 @@ public class SchoolMonitoringCustomizeDialog extends AlertDialog{
     public SchoolMonitoringData getSchoolMonitoringDatabyId(int id , Context context)
     {
         SchoolMonitoringData school = new SchoolMonitoringData();
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(context).deleteRealmIfMigrationNeeded().build();
-        Realm realm = Realm.getInstance(realmConfig);
+        Realm.init(context);
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmResults<SchoolMonitoringData> results = realm.where(SchoolMonitoringData.class).equalTo("id",id).findAll();
         List<SchoolMonitoringData> schoolList = realm.copyFromRealm(results);

@@ -211,8 +211,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     User user = response.body();
                     if(user != null)
                     {
-                        RealmConfiguration realmConfig = new RealmConfiguration.Builder(getApplicationContext()).deleteRealmIfMigrationNeeded().build();
-                        Realm realm = Realm.getInstance(realmConfig);
+                        Realm.init(getApplicationContext());
+                        Realm realm = Realm.getDefaultInstance();
                         realm.beginTransaction();
                         User userData = realm.createObject(User.class);
                         userData.setId(response.body().getId());
@@ -230,7 +230,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         Toast toast = cuToast.getCustomizeToast(getApplicationContext(),"User name and password is invalid!");
                         toast.show();
                     }
-
 
                     showProgress(false);
                 }

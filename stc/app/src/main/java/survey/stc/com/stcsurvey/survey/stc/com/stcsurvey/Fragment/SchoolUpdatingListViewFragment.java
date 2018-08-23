@@ -19,6 +19,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +27,11 @@ import org.json.JSONObject;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -66,8 +71,8 @@ public class SchoolUpdatingListViewFragment extends Fragment{
 
     public void deleteSchoolUpdating(String key)
     {
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolUpdatingListView.getContext()).deleteRealmIfMigrationNeeded().build();
-        Realm realm = Realm.getInstance(realmConfig);
+        Realm.init(getContext());
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmResults<SchoolUpdatingData> realmResults = realm.where(SchoolUpdatingData.class).equalTo("schoolCode",key).findAll();
         realmResults.deleteAllFromRealm();
@@ -77,9 +82,9 @@ public class SchoolUpdatingListViewFragment extends Fragment{
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {
-        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // On Honeycomb MR2 we have the ViewPropsertyAnimator APIs, which allow
         // for very easy animations. If available, use these APIs to fade-in
-        // the progress spinner.
+        // the progsress spinner.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
@@ -108,16 +113,16 @@ public class SchoolUpdatingListViewFragment extends Fragment{
         }
     }
 
-    public List<SchoolUpdatingData> getAllSchoolUpdatingLIist()
-    {
+    public List<SchoolUpdatingData> getAllSchoolUpdatingLIist()  {
         List<SchoolUpdatingData>resList = new ArrayList<>();
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(schoolUpdatingListView.getContext()).deleteRealmIfMigrationNeeded().build();
-        Realm realm = Realm.getInstance(realmConfig);
+        Realm.init(getContext());
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmResults<SchoolUpdatingData> realmResults = realm.where(SchoolUpdatingData.class).findAll();
 
         muploadSchoolList = realm.copyFromRealm(realmResults);
         resList =  realm.copyFromRealm(realmResults);
+
         realm.commitTransaction();
         realm.close();
         return resList;
@@ -155,6 +160,25 @@ public class SchoolUpdatingListViewFragment extends Fragment{
         butUploadServer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                for (SchoolUpdatingData schoolupdate: muploadSchoolList)
+                {
+                    DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                    try {
+                        String test = df.format(schoolupdate.getCreatedDate());
+                        schoolupdate.setCreatedDate(df.parse(df.format(schoolupdate.getCreatedDate())));
+                        schoolupdate.setModifiedDate(df.parse(df.format(schoolupdate.getModifiedDate())));
+                        schoolupdate.setMonitoringDate(df.parse(df.format(schoolupdate.getMonitoringDate())));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+                GsonBuilder gsonBuilder = new GsonBuilder();
+                gsonBuilder.setDateFormat("yyyy-MM-dd");
+                Gson gson = gsonBuilder.create();
+
                 schoolWrapper.setSchoolLsit(muploadSchoolList);
 
                 final OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -164,14 +188,15 @@ public class SchoolUpdatingListViewFragment extends Fragment{
 
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl(getString(R.string.server_url))
-                        .addConverterFactory(GsonConverterFactory.create())
+                        .addConverterFactory(GsonConverterFactory.create(gson))
                         .client(okHttpClient)
                         .build();
 
                 SchoolUpdatingRefrofitInterface schoolUpdateInterface = retrofit.create(SchoolUpdatingRefrofitInterface.class);
                 Call<ResponseData> schoolListcall = schoolUpdateInterface.uploadSchoolListtToserver(schoolWrapper);
                 SchoolUpdatingListWrapper schoolWrapper = new SchoolUpdatingListWrapper();
-                Gson gson = new Gson();
+
+
                 String schoolUpdatingJson = "";
                 if(muploadSchoolList.size()>0)
                 {
@@ -192,10 +217,11 @@ public class SchoolUpdatingListViewFragment extends Fragment{
                         public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
                             showProgress(false);
                             ResponseData res = response.body();
+
                             if(res.isServerError())
                             {
                                 CustomizeToast cuToast = new CustomizeToast("error");
-                                Toast toast = cuToast.getCustomizeToast(schoolUpdatingListView.getContext(),"Server Error!");
+                                 Toast toast = cuToast.getCustomizeToast(schoolUpdatingListView.getContext(),"Server Error!");
                                 toast.show();
                               /*  Toast.makeText(schoolUpdatingListView.getContext(),"Server Error!",Toast.LENGTH_LONG).show();*/
 

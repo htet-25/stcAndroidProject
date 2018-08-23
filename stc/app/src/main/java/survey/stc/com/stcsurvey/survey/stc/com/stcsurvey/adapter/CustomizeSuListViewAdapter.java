@@ -49,8 +49,8 @@ public class CustomizeSuListViewAdapter extends  ArrayAdapter<SchoolUpdatingData
     public List<SchoolUpdatingData> getAllSchoolUpdatingLIist()
     {
         List<SchoolUpdatingData>resList = new ArrayList<>();
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(contex).deleteRealmIfMigrationNeeded().build();
-        Realm realm = Realm.getInstance(realmConfig);
+        Realm.init(contex);
+        Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmResults<SchoolUpdatingData> realmResults = realm.where(SchoolUpdatingData.class).findAll();
 
@@ -63,9 +63,6 @@ public class CustomizeSuListViewAdapter extends  ArrayAdapter<SchoolUpdatingData
 
     public void refreshList()
     {
-
-
-
         this.muploadSchoolList.clear();
         this.muploadSchoolList.addAll(getAllSchoolUpdatingLIist());
         notifyDataSetChanged();
@@ -101,8 +98,8 @@ public class CustomizeSuListViewAdapter extends  ArrayAdapter<SchoolUpdatingData
             imgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    RealmConfiguration realmConfig = new RealmConfiguration.Builder(contex).deleteRealmIfMigrationNeeded().build();
-                    Realm realm = Realm.getInstance(realmConfig);
+                    Realm.init(contex);
+                    Realm realm = Realm.getDefaultInstance();
                     realm.beginTransaction();
                     RealmResults<SchoolUpdatingData> realmResults = realm.where(SchoolUpdatingData.class).equalTo("id",school.getId()).findAll();
                     realmResults.deleteAllFromRealm();
