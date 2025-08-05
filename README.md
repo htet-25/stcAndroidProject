@@ -73,4 +73,4 @@ Ensure the app has the following permissions (declared in AndroidManifest.xml):
 Htet Aung Naing
 📍 Toronto, Canada
 📧 hanmaple92@gmail.com
-🔗 GitHub Profile
+[🔗 GitHub Profile](https://github.com/htet-25)
